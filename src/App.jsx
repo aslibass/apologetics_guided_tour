@@ -149,7 +149,18 @@ export default function App() {
     <div className="w-screen h-screen bg-background text-foreground flex flex-col overflow-hidden">
       {/* Dynamic Breadcrumb Header */}
       <header className="fixed top-0 inset-x-0 z-10 p-6 flex justify-between items-center pointer-events-none">
-        <div className="pointer-events-auto flex items-center gap-2 bg-card/80 backdrop-blur border border-border px-4 py-2 rounded-lg shadow-sm">
+        
+        {/* Left Side: Brand & Breadcrumbs */}
+        <div className="flex items-center gap-4">
+          
+          {/* Main Title */}
+          <div className="pointer-events-auto bg-card/90 backdrop-blur border border-border px-5 py-2 rounded-lg shadow-sm">
+            <h1 className="font-extrabold text-lg tracking-tight bg-gradient-to-r from-primary via-amber-500 to-orange-600 bg-clip-text text-transparent leading-none">
+              Resurrection: The Evidence Map
+            </h1>
+          </div>
+
+          <div className="pointer-events-auto flex items-center gap-2 bg-card/80 backdrop-blur border border-border px-4 py-2 rounded-lg shadow-sm hidden md:flex">
           <button 
             onClick={() => {
               setCurrentView('macro');
@@ -170,6 +181,7 @@ export default function App() {
               </span>
             </>
           )}
+        </div>
         </div>
 
         {/* Right Side Controls */}
