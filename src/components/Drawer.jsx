@@ -16,13 +16,13 @@ export function Drawer({ isOpen, onClose, data }) {
     <AnimatePresence>
       {isOpen && data && (
         <>
-          {/* Backdrop */}
+          {/* Removed full screen backdrop so the React Flow dimming logic works natively keeping the active node sharp */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
+            className="fixed inset-0 z-40 bg-transparent"
           />
           
           {/* Drawer Panel */}

@@ -200,7 +200,11 @@ export default function App() {
           defaultEdgeOptions={{
              type: 'smoothstep',
              animated: true,
-             style: { strokeWidth: 2 }
+             style: { strokeWidth: 2 },
+             labelBgStyle: { fill: '#1f2937', color: '#fff', fillOpacity: 0.9 },
+             labelBgPadding: [8, 4],
+             labelBgBorderRadius: 12,
+             labelStyle: { fill: '#f3f4f6', fontWeight: 600, fontSize: 12 }
           }}
         >
           <Background color="var(--border)" gap={24} size={2} className="opacity-20" />
