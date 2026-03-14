@@ -107,8 +107,8 @@ export default function App() {
     const rfNode = rfInstance.getNode(nodeId);
     if (rfNode) {
       // Add dynamic width/height defaults based on if it's macro or micro
-      const nWidth = rfNode.measured?.width || (targetNode.isMacro ? 800 : 250);
-      const nHeight = rfNode.measured?.height || (targetNode.isMacro ? 500 : 150);
+      const nWidth = rfNode.measured?.width || 250;
+      const nHeight = rfNode.measured?.height || 150;
       
       // Offset the X center to the right (+250) so the node appears further left on the screen,
       // preventing the right-side Drawer from covering it up.

@@ -115,8 +115,8 @@
     {
       "id": "grp_worldview_cross",
       "position": {
-        "x": -800,
-        "y": -500
+        "x": -350,
+        "y": -200
       },
       "data": {
         "label": "1. Foundation: Worldview & The Cross",
@@ -131,10 +131,6 @@
         "presenterNotes": "Without establishing the plausibility of God and the certainty of Jesus's death, no resurrection argument matters.",
         "skepticPushback": "Starting with the assumption that God exists biases the historical investigation from the start.",
         "historicalDefense": "Starting with absolute philosophical naturalism biases it just as much. We must remain open to where the evidence leads, even if it points beyond the natural world."
-      },
-      "style": {
-        "width": 1280,
-        "height": 1170
       }
     },
     {
@@ -278,8 +274,8 @@
     {
       "id": "grp_tomb",
       "position": {
-        "x": 400,
-        "y": -500
+        "x": 350,
+        "y": -200
       },
       "data": {
         "label": "2. Investigation: The Empty Tomb",
@@ -294,10 +290,6 @@
         "presenterNotes": "You cannot preach a resurrection in the exact same city where the corpse is decaying publicly.",
         "skepticPushback": "The tomb narrative is just a later theological invention to fulfill prophecy.",
         "historicalDefense": "The empty tomb tradition is multiply attested in early, independent sources, and relies on embarrassing female testimony, cementing its historical core."
-      },
-      "style": {
-        "width": 1280,
-        "height": 810
       }
     },
     {
@@ -401,8 +393,8 @@
     {
       "id": "grp_appearances",
       "position": {
-        "x": -800,
-        "y": 250
+        "x": -350,
+        "y": 200
       },
       "data": {
         "label": "3. The Human Factor: Witnesses & Psychology",
@@ -416,10 +408,6 @@
         "presenterNotes": "Explains the psychological paradigm shift of the disciples.",
         "skepticPushback": "Psychology and cognitive science can explain radical human behavioral shifts without needing to appeal to the supernatural.",
         "historicalDefense": "While psychology explains subjective internal shifts, it fails to explain the external, objective data points (the empty tomb) that accompanied these specific psychological transformations."
-      },
-      "style": {
-        "width": 1280,
-        "height": 1080
       }
     },
     {
@@ -562,8 +550,8 @@
     {
       "id": "grp_mythicism",
       "position": {
-        "x": 400,
-        "y": 150
+        "x": 350,
+        "y": 200
       },
       "data": {
         "label": "4. The Timeline: History vs. Myth",
@@ -577,10 +565,6 @@
         "presenterNotes": "Dismantles the 'Telephone Game' argument.",
         "skepticPushback": "History proves that folklore and legends can form incredibly rapidly, especially in oral cultures.",
         "historicalDefense": "While minor legends form fast, completely overwriting a historical core while the original eyewitnesses are actively checking and managing the oral tradition is unprecedented."
-      },
-      "style": {
-        "width": 1280,
-        "height": 810
       }
     },
     {
