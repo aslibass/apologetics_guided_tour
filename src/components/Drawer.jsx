@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ShieldAlert, ShieldCheck } from 'lucide-react';
 
-export function Drawer({ isOpen, onClose, data }) {
+export function Drawer({ isOpen, onClose, data, showPresenterNotes }) {
   // Close on ESC mapping
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -66,13 +66,37 @@ export function Drawer({ isOpen, onClose, data }) {
                   </ul>
                 </div>
 
-                {/* Presenter Notes */}
-                {data.presenterNotes && (
-                  <div className="bg-muted/30 p-4 rounded-xl border border-border">
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-2 flex items-center gap-2">
-                       Presenter Notes <span className="bg-primary/20 text-primary text-[10px] px-2 py-0.5 rounded-full">Private</span>
+                {/* Skeptic Pushback */}
+                {data.skepticPushback && (
+                  <div className="bg-red-500/5 dark:bg-red-500/10 p-4 rounded-xl border border-red-500/20">
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-red-700 dark:text-red-400 mb-2 flex items-center gap-2">
+                      <ShieldAlert className="w-4 h-4" /> Skeptical Pushback
                     </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed italic">
+                    <p className="text-sm text-red-900/80 dark:text-red-300/80 leading-relaxed italic">
+                      "{data.skepticPushback}"
+                    </p>
+                  </div>
+                )}
+
+                {/* Historical Defense */}
+                {data.historicalDefense && (
+                  <div className="bg-emerald-500/5 dark:bg-emerald-500/10 p-4 rounded-xl border border-emerald-500/20">
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 mb-2 flex items-center gap-2">
+                       <ShieldCheck className="w-4 h-4" /> Historical Defense
+                    </h3>
+                    <p className="text-sm text-emerald-900/80 dark:text-emerald-300/80 leading-relaxed">
+                      {data.historicalDefense}
+                    </p>
+                  </div>
+                )}
+
+                {/* Presenter Notes (Conditional on Presenter Mode) */}
+                {showPresenterNotes && data.presenterNotes && (
+                  <div className="bg-amber-500/5 dark:bg-amber-500/10 p-4 rounded-xl border border-amber-500/20 mt-6">
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-2 flex items-center gap-2">
+                       Presenter Notes <span className="bg-amber-500/20 text-amber-800 dark:text-amber-200 text-[10px] px-2 py-0.5 rounded-full">Private</span>
+                    </h3>
+                    <p className="text-sm text-amber-900/80 dark:text-amber-300/80 leading-relaxed italic">
                       "{data.presenterNotes}"
                     </p>
                   </div>
