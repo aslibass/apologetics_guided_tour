@@ -1,527 +1,390 @@
 {
-  "tours": {
-    "week_one_history": [
-      "context_claims",
-      "fact_crucifixion",
-      "fact_empty_tomb",
-      "fact_appearances",
-      "fact_transformation",
-      "fact_skeptics",
-      "fact_creeds",
-      "core_resurrection"
-    ],
-    "objection_stolen": [
-      "fact_empty_tomb",
-      "obj_stolen",
-      "ref_stolen_cowardice"
-    ],
-    "objection_hallucination": [
-      "fact_appearances",
-      "obj_hallucination",
-      "ref_hallucination"
-    ],
-    "objection_legend": [
-      "fact_creeds",
-      "obj_legend",
-      "ref_legend"
-    ],
-    "worldview_foundations": [
-      "ref_worldview_science",
-      "ref_worldview_meaning",
-      "ref_strobel_creator",
-      "context_claims",
-      "core_resurrection"
-    ]
-  },
+  "macroEdges": [
+    { "id": "m1", "source": "grp_worldview_cross", "target": "core_resurrection", "label": "The Historical Baseline", "animated": true, "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "m2", "source": "grp_tomb", "target": "core_resurrection", "label": "The Physical Evidence", "animated": true, "type": "smoothstep", "style": { "strokeWidth": 2 } },
+    { "id": "m3", "source": "grp_appearances", "target": "core_resurrection", "label": "The Human Experience", "animated": true, "type": "smoothstep", "style": { "strokeWidth": 2 } },
+    { "id": "m4", "source": "grp_mythicism", "target": "core_resurrection", "label": "The Timeline Factor", "animated": true, "type": "smoothstep", "style": { "strokeWidth": 2 } }
+  ],
   "nodes": [
     {
       "id": "core_resurrection",
       "position": { "x": 0, "y": 0 },
       "data": {
-        "label": "The Resurrection of Christ",
+        "label": "The Core Question: Did Jesus Rise?",
         "category": "core",
-        "summary": "The central focal point of Christian faith and history.",
+        "summary": "The central focal point of Christian faith and the turning point of human history.",
         "publicSummary": [
           "The bodily resurrection of Jesus is the foundational claim of Christianity.",
-          "According to Paul (1 Cor 15), if Christ is not raised, the faith is futile.",
-          "It is the explanatory nexus for all historical bedrock 'minimal facts'."
+          "It invites us to explore an extraordinary explanation for an extraordinary set of facts.",
+          "If true, it changes everything."
         ],
-        "presenterNotes": "Emphasize that this is not a metaphor. The ancient world had categories for visions and spirits, but 'resurrection' strictly meant a bodily return to life. The credibility of this event relies on explaining the aftermath of his crucifixion better than any competing naturalistic theory."
+        "presenterNotes": "Emphasize that this is an invitation to investigate. The ancient world had categories for visions, but resurrection strictly meant a bodily return to life."
       }
     },
+
     {
-      "id": "context_claims",
-      "position": { "x": 0, "y": -400 },
+      "id": "grp_worldview_cross",
+      "position": { "x": -400, "y": -300 },
       "data": {
-        "label": "C. Religio-Historical Context",
+        "label": "1. Foundation: Worldview & The Cross",
         "category": "evidence",
-        "summary": "The unparalleled life and radical divine claims of Jesus.",
-        "publicSummary": [
-          "Miracles do not happen in a vacuum.",
-          "Jesus made radical, explicit claims to divine authority.",
-          "He performed unprecedented healings and exorcisms.",
-          "He explicitly predicted His own violent death and subsequent resurrection."
-        ],
-        "presenterNotes": "William Lane Craig emphasizes that if someone is struck by lightning, it's random. If someone says 'I will be struck by lightning to prove I am God,' and it happens... that changes the probability calculus drastically. God raised Jesus from the dead to vindicate his blasphemous claims to deity."
-      }
-    },
-    {
-      "id": "ref_worldview_science",
-      "position": { "x": -450, "y": -400 },
-      "data": {
-        "label": "B. Science & The Rational Universe",
-        "category": "refutation",
-        "summary": "Science inherently requires an ordered universe with a Lawgiver.",
-        "publicSummary": [
-          "The scientific method relies on the universe being rationally intelligible.",
-          "Atheistic naturalism cannot justify why we should trust our own cognitive faculties.",
-          "If our brains are just the product of unguided, mindless processes, reason itself is undermined.",
-          "Christian Theism provides the robust foundation for science."
-        ],
-        "presenterNotes": "As John Lennox argues, 'Nonsense remains nonsense, even when talked by world-famous scientists.' Plantinga's Evolutionary Argument Against Naturalism (EAAN) applies here—evolution selects for survival, not necessarily for objective truth-gathering capability."
-      }
-    },
-    {
-      "id": "ref_worldview_meaning",
-      "position": { "x": 450, "y": -400 },
-      "data": {
-        "label": "D. The Moral Architecture of Reality",
-        "category": "refutation",
-        "summary": "Only an absolute Lawgiver grounds objective morality and human dignity.",
-        "publicSummary": [
-          "Objective moral values (e.g., 'torturing babies for fun is wrong') actually exist.",
-          "Without God, morality is just biological conditioning or cultural preference.",
-          "Secular humanism borrows Christian moral capital (like human rights) without the foundation.",
-          "The Christian worldview answers Origin, Meaning, Morality, and Destiny."
-        ],
-        "presenterNotes": "Ravi Zacharias fundamentally argued that without God, one cannot logically defend human dignity or intrinsic meaning. Note Dostoevsky: 'If God does not exist, everything is permitted.'"
+        "isMacro": true,
+        "summary": "Step 1: Establishing the plausibility of God and the undeniable historical baseline that Jesus died.",
+        "publicSummary": ["Are miracles even possible?", "Who was Jesus, and what did he claim?", "Did he actually die on that Roman cross?"],
+        "presenterNotes": "Without establishing the plausibility of God and the certainty of Jesus's death, no resurrection argument matters to a skeptic."
       }
     },
     {
       "id": "ref_strobel_creator",
-      "position": { "x": -900, "y": -400 },
+      "parentId": "grp_worldview_cross",
+      "position": { "x": -400, "y": -200 },
       "data": {
-        "label": "A. Anthropic Principle (Fine-Tuning)",
+        "label": "A. The Fine-Tuned Universe",
         "category": "evidence",
-        "summary": "The universe is meticulously 'rigged' for human life to exist.",
-        "publicSummary": [
-          "The physical constants of the universe (gravity, expansion rate) are balanced on a razor's edge.",
-          "Even a microscopic deviation after the Big Bang would result in a lifeless universe.",
-          "This extraordinary fine-tuning strongly implies a Divine Architect.",
-          "It provides the cosmological backdrop making the Resurrection highly plausible."
-        ],
-        "presenterNotes": "Explored thoroughly by Lee Strobel in 'The Case for a Creator'. Quote Robin Collins or Roger Penrose on the exact mathematical probabilities (e.g., 1 in 10^10^123 for initial entropy conditions). This blows the multiverse theory out of the water using Ockham's Razor."
+        "summary": "The universe appears meticulously designed for human life.",
+        "publicSummary": ["The physics of our universe are balanced on a razor's edge.", "This strongly points toward a Divine Architect or Creator."],
+        "presenterNotes": "Fine-Tuning (the Anthropic Principle) invites them to reconsider naturalism using modern science."
       }
     },
-
+    {
+      "id": "ref_worldview_science",
+      "parentId": "grp_worldview_cross",
+      "position": { "x": 0, "y": -200 },
+      "data": {
+        "label": "B. Science Needs an Ordered Mind",
+        "category": "refutation",
+        "summary": "The very act of doing science requires trust in a reliable, ordered universe.",
+        "publicSummary": ["If our minds are just the result of blind, unguided forces, can we trust our reasoning?", "A rational Creator provides the foundation for science."],
+        "presenterNotes": "Plantinga's EAAN applies here. It softens the conflict between faith and science."
+      }
+    },
+    {
+      "id": "context_claims",
+      "parentId": "grp_worldview_cross",
+      "position": { "x": -200, "y": 0 },
+      "data": {
+        "label": "C. Jesus Made Radical Claims",
+        "category": "evidence",
+        "summary": "Jesus lived an unparalleled life and claimed divine authority.",
+        "publicSummary": ["Jesus didn't just teach morals; he claimed to speak for God and predict his own death.", "Miracles require a context to have meaning."],
+        "presenterNotes": "Miracles do not happen in a vacuum. The context dictates the meaning."
+      }
+    },
     {
       "id": "fact_crucifixion",
-      "position": { "x": -1000, "y": 300 },
+      "parentId": "grp_worldview_cross",
+      "position": { "x": 200, "y": 0 },
       "data": {
-        "label": "1. Death by Crucifixion",
+        "label": "Baseline Fact: Death by Crucifixion",
         "category": "evidence",
-        "summary": "Jesus died by Roman crucifixion under Pontius Pilate.",
-        "publicSummary": [
-          "Virtually all scholars—secular and critical—agree that Jesus died by Roman crucifixion.",
-          "Corroborated by all four Gospels and Paul.",
-          "Confirmed by non-Christian authors (Tacitus, Josephus, Mara bar Serapion).",
-          "Roman executioners were professional killers who guaranteed death."
-        ],
-        "presenterNotes": "This is Gary Habermas's 'Fact #1'. Even the most skeptical atheist historians (like Bart Ehrman, John Dominic Crossan) concede this as absolute historical bedrock. Mention the exact quote from Tacitus regarding 'Christus, from whom the name had its origin, suffered the extreme penalty during the reign of Tiberius at the hands of one of our procurators, Pontius Pilatus.'"
-      }
-    },
-    {
-      "id": "fact_empty_tomb",
-      "position": { "x": -600, "y": 300 },
-      "data": {
-        "label": "2. The Empty Tomb",
-        "category": "evidence",
-        "summary": "His tomb was found empty by a group of his women followers.",
-        "publicSummary": [
-          "The tomb of Jesus was found empty on Sunday morning by his female followers.",
-          "Passes the 'Criterion of Embarrassment': In a patriarchal society, women were not considered reliable legal witnesses.",
-          "Accepted by roughly 75% of New Testament scholars today."
-        ],
-        "presenterNotes": "If the early church were fabricating the story, they would have written that male disciples (like Peter or John) found the empty tomb. The fact that all four gospels list the women (specifically Mary Magdalene) as the primary discoverers shows an unvarnished historical memory."
-      }
-    },
-    {
-      "id": "fact_appearances",
-      "position": { "x": -200, "y": 300 },
-      "data": {
-        "label": "3. Post-Mortem Appearances",
-        "category": "evidence",
-        "summary": "Individuals and groups experienced appearances of the risen Jesus.",
-        "publicSummary": [
-          "The disciples genuinely believed that Jesus appeared to them alive after his death.",
-          "These appearances happened to individuals (Peter, Mary) and to groups (the Twelve).",
-          "Famously, He appeared to 500 people at once (1 Cor 15:6).",
-          "Described as multisensory, bodily interactions (eating, touching), not ghosts."
-        ],
-        "presenterNotes": "Even critical scholars admit the disciples *had experiences* they interpreted as the risen Jesus. E.P. Sanders (liberal scholar) says 'That Jesus’ followers (and later Paul) had resurrection experiences is, in my judgment, a fact. What the reality was that gave rise to the experiences I do not know.'"
-      }
-    },
-    {
-      "id": "fact_transformation",
-      "position": { "x": 200, "y": 300 },
-      "data": {
-        "label": "4. Apostolic Transformation",
-        "category": "evidence",
-        "summary": "Cowardly disciples became bold proclaimers willing to die.",
-        "publicSummary": [
-          "Following the arrest, the disciples fled in terror and hid for their lives.",
-          "Within weeks, these same men were boldly preaching the Resurrection.",
-          "They preached in the exact same city (Jerusalem) where the authorities killed Jesus.",
-          "They willingly faced imprisonment, torture, and martyrdom for this specific claim."
-        ],
-        "presenterNotes": "A psychological paradigm shift is required here. Chuck Colson (Watergate) notoriously said, 'I know the resurrection is a fact, and Watergate proved it to me. How? Because 12 men testified they had seen Jesus raised from the dead, then they proclaimed that truth for 40 years, never once denying it. Everyone was beaten, tortured, stoned and put in prison. They would not have endured that if it weren't true. Watergate embroiled 12 of the most powerful men in the world—and they couldn't keep a lie for three weeks.'"
-      }
-    },
-    {
-      "id": "fact_skeptics",
-      "position": { "x": 600, "y": 300 },
-      "data": {
-        "label": "5. Conversion of Skeptics",
-        "category": "evidence",
-        "summary": "Enemies and skeptics unexpectedly converted.",
-        "publicSummary": [
-          "Two critical figures converted due to sudden, post-mortem appearances.",
-          "James (the brother of Jesus) explicitly rejected Jesus during His ministry, but became a primary leader after Jesus appeared to him.",
-          "Paul (Saul of Tarsus) was actively hunting and murdering Christians before experiencing the risen Lord on the road to Damascus."
-        ],
-        "presenterNotes": "Paul is the ultimate hostile witness. He had no psychological predisposition to hallucinate the risen Jesus; he believed Jesus was a cursed heretic. Only a powerful, objective encounter can explain why he traded a life of high-status Pharisaic prestige for a life of beatings, shipwrecks, and eventual beheading."
-      }
-    },
-    {
-      "id": "fact_creeds",
-      "position": { "x": 1000, "y": 300 },
-      "data": {
-        "label": "6. Early Creedal Traditions",
-        "category": "evidence",
-        "summary": "Belief in the resurrection arose instantly, not decades later.",
-        "publicSummary": [
-          "1 Corinthians 15:3-7 quotes a pre-existing creed explicitly stating Christ died, was buried, rose, and appeared.",
-          "Critical scholars universally date the formulation of this creed to within 1-5 years of the crucifixion.",
-          "This proves the core story was not a late-developing mythological evolution."
-        ],
-        "presenterNotes": "This annihilates the 'telephone game' argument. Paul wrote 1 Cor around 55 AD, but received the creed (likely in Jerusalem from Peter and James) around 36 AD. That's merely 3-6 years after the cross. Richard Bauckham ('Jesus and the Eyewitnesses') notes that the timeline leaves absolutely zero room for myth to develop and displace the memories of living eyewitnesses."
-      }
-    },
-
-    {
-      "id": "ref_strobel_legal",
-      "position": { "x": -200, "y": 150 },
-      "data": {
-        "label": "Journalistic & Legal Standard",
-        "category": "evidence",
-        "summary": "The eyewitness evidence holds up to rigorous legal and investigative scrutiny.",
-        "publicSummary": [
-          "Eyewitness corroboration for the resurrection is extraordinarily strong against legal standards.",
-          "Skeptics often improperly demand 'mathematical' proof for a historical event.",
-          "History relies on the preponderance of eyewitness testimony and forensic impact.",
-          "By the standards used to convict in court today, the case is overwhelmingly proven."
-        ],
-        "presenterNotes": "Lee Strobel ('The Case for Christ') applied robust legal evidentiary standards to the Resurrection. Quote Simon Greenleaf (former Royal Professor of Law at Harvard): 'The religion of Jesus Christ ought, therefore, to be submitted to the ordinary tests of truth, as we apply them to human testimony in courts of justice.'"
-      }
-    },
-
-    {
-      "id": "bias_naturalism",
-      "position": { "x": -1500, "y": 600 },
-      "data": {
-        "label": "A-Priori Naturalism",
-        "category": "objection",
-        "summary": "The unquestioned presupposition that miracles are categorically impossible.",
-        "publicSummary": [
-          "Not a conclusion based on evidence, but a philosophical starting point.",
-          "Assumes the physical universe is a closed system that cannot be interfered with.",
-          "Forces the skeptic to reject any miraculous claim before looking at the historical data.",
-          "David Hume famously argued that miracles are by definition the least probable event."
-        ],
-        "presenterNotes": "This is the true root cause of most skeptical objections. As C.S. Lewis noted, if you believe beforehand that miracles are impossible, then any naturalistic explanation, no matter how absurd or complex (like swooning on a cross), will be preferred over a resurrection."
+        "summary": "Jesus undoubtedly died by Roman crucifixion under Pontius Pilate.",
+        "publicSummary": ["Virtually all historians, Christian and atheist alike, agree Jesus died this way.", "It is recorded by secular Roman historians like Tacitus and Jewish historians like Josephus."],
+        "presenterNotes": "Even critical scholars like Bart Ehrman concede this. It is unassailable history."
       }
     },
     {
       "id": "obj_swoon",
-      "position": { "x": -1150, "y": 600 },
+      "parentId": "grp_worldview_cross",
+      "position": { "x": 200, "y": 200 },
       "data": {
-        "label": "Swoon Theory (Apparent Death)",
+        "label": "Could He Have Survived? (Swoon)",
         "category": "objection",
-        "summary": "Jesus didn't actually die on the cross; He merely passed out.",
-        "publicSummary": [
-          "Posits that Jesus merely fainted or slipped into a coma on the cross due to shock and blood loss.",
-          "Suggests He tricked the Roman guards and was taken down alive.",
-          "Argues the cool, damp air of the tomb magically revived Him.",
-          "Claims He then escaped and convinced the disciples He conquered death."
-        ],
-        "presenterNotes": "First popularized by Karl Friedrich Bahrdt in 1790. It's almost universally abandoned by modern scholarship because it requires more faith than the resurrection itself."
+        "summary": "Did Jesus merely pass out on the cross from shock, rather than actually dying?",
+        "publicSummary": ["This theory suggests Jesus slipped into a coma and the cool tomb revived Him.", "Could a half-dead, bleeding man convince the disciples he was the Lord of Life?"],
+        "presenterNotes": "Address this gently. It's a common initial thought, but deeply flawed."
       }
     },
     {
       "id": "ref_swoon_medical",
-      "position": { "x": -1000, "y": 800 },
+      "parentId": "grp_worldview_cross",
+      "position": { "x": 600, "y": 100 },
       "data": {
-        "label": "Medical Impossibility",
+        "label": "Medical Consensus Says No",
         "category": "refutation",
         "summary": "Roman flagellation and crucifixion were infallibly fatal.",
-        "publicSummary": [
-          "The 1986 JAMA study 'On the Physical Death of Jesus Christ' confirms death was absolute.",
-          "The spear thrust yielding 'blood and water' uniquely indicates pericardial and pleural effusion (heart failure).",
-          "Romans were professional executioners who faced death themselves if a prisoner survived.",
-          "A half-dead, severely brutalized man limping out of a tomb would not inspire worship as the 'Lord of Life.'"
-        ],
-        "presenterNotes": "David Strauss (a 19th-century liberal skeptic) dealt the death blow to this theory. He noted that a man creeping out of a tomb, sick, needing severe medical care, bandaging, and strengthening, 'could by no possibility have given to the disciples the impression that he was a conqueror over death and the grave.'"
+        "publicSummary": ["Peer-reviewed medical studies (like in JAMA) confirm survival was impossible.", "Roman soldiers were professional executioners who faced death themselves if a prisoner escaped."],
+        "presenterNotes": "A half-dead man creeping out of a tomb would inspire pity, not a global worship movement."
       }
     },
 
     {
-      "id": "obj_stolen",
-      "position": { "x": -750, "y": 600 },
+      "id": "grp_tomb",
+      "position": { "x": 400, "y": -300 },
       "data": {
-        "label": "Conspiracy / Stolen Body",
+        "label": "2. Investigation: The Empty Tomb",
+        "category": "evidence",
+        "isMacro": true,
+        "summary": "Step 2: Looking at the physical evidence in Jerusalem and the theories surrounding the missing body.",
+        "publicSummary": ["Is it true the tomb was empty?", "Who would have stolen the body?", "Could they simply be looking in the wrong place?"],
+        "presenterNotes": "The Jerusalem factor—you cannot preach a resurrection in the same city where the corpse is decaying publicly."
+      }
+    },
+    {
+      "id": "fact_empty_tomb",
+      "parentId": "grp_tomb",
+      "position": { "x": -200, "y": -100 },
+      "data": {
+        "label": "Fact: The Tomb Was Empty",
+        "category": "evidence",
+        "summary": "On Sunday morning, a group of Jesus's female followers found the tomb empty.",
+        "publicSummary": ["In the ancient world, a woman's testimony was considered unreliable in court.", "If the disciples invented this story, they would have made the male leaders the heroes. Instead, they told the embarrassing truth: the women found it first."],
+        "presenterNotes": "Passes the Criterion of Embarrassment with flying colors."
+      }
+    },
+    {
+      "id": "obj_stolen",
+      "parentId": "grp_tomb",
+      "position": { "x": -400, "y": 200 },
+      "data": {
+        "label": "Did the Disciples Steal It?",
         "category": "objection",
-        "summary": "The disciples stole the body to fake the resurrection.",
-        "publicSummary": [
-          "The earliest objection, proposed by the Jewish authorities acting in Matthew 28.",
-          "Suggests the disciples snuck past the elite Roman guards while they slept.",
-          "Posits they quietly rolled away a 2-ton stone.",
-          "Assumes they knowingly perpetrated a massive, lifelong religious hoax."
-        ],
-        "presenterNotes": "If the guards were truly sleeping, how did they know it was the disciples who stole the body? Also, Roman guards falling asleep on a sealed watch was an offense punishable by being burned alive in their own clothes."
+        "summary": "Perhaps the disciples stole the body in the night to fake a resurrection.",
+        "publicSummary": ["This is the oldest alternative theory, recorded in the Gospel of Matthew itself.", "It assumes a massive, orchestrated conspiracy by terrified, hiding fishermen."],
+        "presenterNotes": "The oldest objection. But who had the motive? And the means?"
       }
     },
     {
       "id": "ref_stolen_cowardice",
-      "position": { "x": -750, "y": 800 },
+      "parentId": "grp_tomb",
+      "position": { "x": -200, "y": 400 },
       "data": {
-        "label": "Liars Make Poor Martyrs",
+        "label": "People Don't Die for a Known Lie",
         "category": "refutation",
-        "summary": "People do not willingly die for a lie they invented.",
-        "publicSummary": [
-          "Many people have died for a lie they *thought* was true.",
-          "People do not willingly suffer torture and death for a lie they *knowingly fabricated*.",
-          "If the disciples stole the body, they absolutely knew the resurrection was fake.",
-          "Yet all 11 maintained their testimony through horrific martyrdoms without a single confession to a hoax."
-        ],
-        "presenterNotes": "Pascal: 'I believe those witnesses that get their throats cut.' If it was a conspiracy, surely at least *one* of them, facing beheading, crucifixion, or boiling oil, would have cracked and said, 'Okay, okay, we buried him in a shallow grave outside Jericho!' No one ever did."
+        "summary": "Virtually all the disciples suffered brutal martyrdoms for their claim.",
+        "publicSummary": ["People will die for a lie they *think* is true.", "No one will willingly undergo torture and execution for a lie they *know* they fabricated."],
+        "presenterNotes": "Pascal: 'I believe those witnesses that get their throats cut.'"
       }
     },
-
     {
       "id": "obj_wrong_tomb",
-      "position": { "x": -500, "y": 600 },
+      "parentId": "grp_tomb",
+      "position": { "x": 100, "y": 200 },
       "data": {
-        "label": "Wrong Tomb Theory",
+        "label": "Did They Go to the Wrong Tomb?",
         "category": "objection",
-        "summary": "The frightened women simply went to the wrong tomb.",
-        "publicSummary": [
-          "Argues it was early morning and the women were distraught and tearful.",
-          "Mistakenly walked up to an empty tomb belonging to someone else.",
-          "Saw the grave clothes and instantly assumed a miraculous resurrection.",
-          "This harmless accident accidentally sparked the global Christian movement."
-        ],
-        "presenterNotes": "Popularized by Kirsopp Lake in 1907. It assumes massive incompetence on the part of the women, the disciples who followed them later, and Joseph of Arimathea who actually owned the tomb."
+        "summary": "In their grief and the dark morning hours, the women simply went to the wrong graveyard.",
+        "publicSummary": ["This suggests an honest mistake ignited a global religion.", "They saw an empty grave and accidentally assumed a miracle."],
+        "presenterNotes": "Assumes massive incompetence by everyone involved."
       }
     },
     {
       "id": "ref_wrong_tomb",
-      "position": { "x": -500, "y": 800 },
+      "parentId": "grp_tomb",
+      "position": { "x": 300, "y": 400 },
       "data": {
-        "label": "Authorities Knew The Location",
+        "label": "The Romans Would Have Corrected Them",
         "category": "refutation",
-        "summary": "The Romans or Jewish leaders would have produced the corpse.",
-        "publicSummary": [
-          "Even if the women, and subsequently the disciples, went to the wrong tomb...",
-          "The Jewish Sanhedrin (Joseph of Arimathea) and the Roman Guards knew exactly where Jesus was actually buried.",
-          "To completely crush Christianity instantly, the authorities simply had to walk to the correct tomb.",
-          "Producing the corpse of Jesus and parading it through Jerusalem would end the movement immediately. They never did."
-        ],
-        "presenterNotes": "The fact that the authorities resulted to saying 'the disciples stole the body' (Matt 28:15) is an implicit admission by the hostile witnesses that the correct tomb was indeed empty."
+        "summary": "If it was the wrong tomb, the authorities would have simply produced the actual body.",
+        "publicSummary": ["The Jewish and Roman leaders desperately wanted to crush Christianity.", "All they had to do was point to the correct tomb and produce the corpse. They never did."],
+        "presenterNotes": "The ultimate trump card to the Wrong Tomb theory."
       }
     },
 
     {
-      "id": "obj_hallucination",
-      "position": { "x": -250, "y": 600 },
+      "id": "grp_appearances",
+      "position": { "x": -400, "y": 300 },
       "data": {
-        "label": "Mass Hallucination Theory",
+        "label": "3. The Human Factor: Witnesses & Psychology",
+        "category": "evidence",
+        "isMacro": true,
+        "summary": "Step 3: Exploring the profound psychological transformation of eyewitnesses and former enemies.",
+        "publicSummary": ["Why did terrified fishermen suddenly become bold martyrs?", "Why did hostile skeptics like Paul suddenly convert?", "Could it have all been in their minds?"],
+        "presenterNotes": "Explains the psychological paradigm shift of the disciples."
+      }
+    },
+    {
+      "id": "fact_appearances",
+      "parentId": "grp_appearances",
+      "position": { "x": -300, "y": -200 },
+      "data": {
+        "label": "Fact: People Claimed to See Him",
+        "category": "evidence",
+        "summary": "Multiple individuals and groups claimed they experienced appearances of the risen Jesus.",
+        "publicSummary": ["He appeared to individuals, small groups, and crowds of up to 500 at once.", "They claimed these were multisensory, bodily interactions (eating, touching), not ghosts."],
+        "presenterNotes": "Even skeptical scholars admit the disciples genuinely *believed* they had experiences."
+      }
+    },
+    {
+      "id": "fact_transformation",
+      "parentId": "grp_appearances",
+      "position": { "x": 0, "y": -200 },
+      "data": {
+        "label": "Fact: A Radical Transformation",
+        "category": "evidence",
+        "summary": "Cowardly disciples hiding in fear suddenly became bold, public proclaimers.",
+        "publicSummary": ["When Jesus died, the movement was utterly crushed.", "Within weeks, these terrified men were boldly preaching the Resurrection in Jerusalem, facing execution themselves."],
+        "presenterNotes": "A sudden, massive psychological shift requires an objective catalyst."
+      }
+    },
+    {
+      "id": "fact_skeptics",
+      "parentId": "grp_appearances",
+      "position": { "x": 300, "y": -200 },
+      "data": {
+        "label": "Fact: Enemies Converted",
+        "category": "evidence",
+        "summary": "Skeptics and violent enemies of the church suddenly became its greatest champions.",
+        "publicSummary": ["Jesus's skeptical brother, James, converted and became a leader.", "Paul, a violent persecutor of Christians, suddenly converted and wrote half the New Testament."],
+        "presenterNotes": "Paul is the ultimate hostile witness. What changed his mind?"
+      }
+    },
+    {
+      "id": "obj_hallucination",
+      "parentId": "grp_appearances",
+      "position": { "x": -300, "y": 100 },
+      "data": {
+        "label": "Were They Hallucinating?",
         "category": "objection",
-        "summary": "Post-mortem appearances were merely grief-induced hallucinations.",
-        "publicSummary": [
-          "The leading secular theory today (e.g., Bart Ehrman, Gerd Lüdemann).",
-          "Proposes that Peter and the disciples were severely struck with grief regarding their failed Messiah.",
-          "Their minds collectively projected intense, realistic visions of a risen Jesus.",
-          "This was a psychological coping mechanism for extreme trauma."
-        ],
-        "presenterNotes": "Gerd Lüdemann argues that Peter's overwhelming guilt over denying Jesus caused a psychological rupture, producing a vivid hallucination of forgiveness, which somehow became contagious."
+        "summary": "The appearances were merely intense visions brought on by severe grief and desire.",
+        "publicSummary": ["The mind is powerful and can project intense visions as a coping mechanism.", "Perhaps grief drove Peter and Mary to imagine seeing Jesus."],
+        "presenterNotes": "The leading secular theory today."
       }
     },
     {
       "id": "ref_hallucination",
-      "position": { "x": -250, "y": 800 },
+      "parentId": "grp_appearances",
+      "position": { "x": -450, "y": 300 },
       "data": {
-        "label": "Psycho-Medical Impossibility",
+        "label": "Group Hallucinations Are Impossible",
         "category": "refutation",
-        "summary": "Group hallucinations are medically unviable, and skeptics don't hallucinate.",
-        "publicSummary": [
-          "Psychologists agree hallucinations are strictly individual events in the private mind, like a dream.",
-          "There is no clinical record of a 'group hallucination' where 500 people see the exact same detailed illusion.",
-          "It completely fails to explain the undeniably empty tomb (hallucinations leave the corpse inside).",
-          "Fails to explain Paul: He was not grieving Jesus; he was actively destroying the church."
-        ],
-        "presenterNotes": "Gary Habermas says, 'If 500 people have the same hallucination, that is a bigger miracle than the resurrection.' Also, there is no psychological precedence for hallucinations lasting 40 days and then stopping abruptly."
+        "summary": "Psychologists agree that group hallucinations are medically unviable.",
+        "publicSummary": ["Hallucinations are private, internal events, like dreams.", "500 people don't share the exact same dream at the exact same time."],
+        "presenterNotes": "Furthermore, hallucination does not explain the empty tomb."
       }
     },
-
     {
       "id": "obj_dissonance",
-      "position": { "x": 100, "y": 600 },
+      "parentId": "grp_appearances",
+      "position": { "x": 100, "y": 100 },
       "data": {
-        "label": "Cognitive Dissonance",
+        "label": "Did Grief Break Their Logic?",
         "category": "objection",
-        "summary": "Belief as a psychological coping mechanism to avoid accepting defeat.",
-        "publicSummary": [
-          "Promoted by modern psycho-historians relying on Leon Festinger's theories.",
-          "When a deeply held belief is proven drastically wrong (prophecy failure), humans double down.",
-          "Argues the disciples' belief was a psychological coping mechanism to avoid accepting that their movement had failed.",
-          "They consciously or subconsciously invented the resurrection to save face."
-        ],
-        "presenterNotes": "This is often compared to UFO cults that predict the end of the world, and when the spaceship doesn't come, they double down and say 'our prayers saved the world, the aliens told us so!'"
+        "summary": "A psychological reaction called Cognitive Dissonance forced them to cope with defeat.",
+        "publicSummary": ["When deeply held beliefs fail, humans often invent a 'spiritual' victory to avoid admitting they were wrong.", "Did they just rationalize away his death?"],
+        "presenterNotes": "Leon Festinger's theory applied to religion."
       }
     },
     {
       "id": "ref_dissonance",
-      "position": { "x": 100, "y": 800 },
+      "parentId": "grp_appearances",
+      "position": { "x": 300, "y": 300 },
       "data": {
-        "label": "Dissonance Changes Theology",
+        "label": "A Bodily Resurrection Was Unthinkable",
         "category": "refutation",
-        "summary": "Dissonance leads to reinterpretation, not physical resurrection.",
-        "publicSummary": [
-          "N.T. Wright points out that Cognitive Dissonance typically leads to *reinterpreting* beliefs.",
-          "The disciples would have said, 'Jesus meant a spiritual kingdom and His spirit lives on in heaven.'",
-          "A tangible, bodily resurrection was a concept utterly foreign to Second Temple Jewish eschatology.",
-          "Jews only expected a 'general resurrection' at the end of time, never an isolated resurrection of one man in the middle of history."
-        ],
-        "presenterNotes": "There were dozens of failed Messianic movements in the 1st century (Judas the Galilean, Simon Bar Giora). When the Romans killed the messiah, the movement either ended entirely, or they found a new messiah (usually the brother). No one ever claimed the dead messiah rose from the dead. Why? Because according to Jewish theology, dying on a tree meant you were cursed by God (Deut 21:23)."
+        "summary": "Dissonance leads to spiritual reinterpretation, not claims of a physical returning corpse.",
+        "publicSummary": ["A dying and suddenly rising Messiah was entirely foreign to 1st-century Jewish expectations.", "If they were inventing a coping mechanism, they would have said Jesus lived on 'spiritually', not physically."],
+        "presenterNotes": "The concept of an isolated, mid-history resurrection had zero precedent."
       }
     },
 
     {
-      "id": "obj_legend",
-      "position": { "x": 450, "y": 600 },
+      "id": "grp_mythicism",
+      "position": { "x": 400, "y": 300 },
       "data": {
-        "label": "Mythicism & Legend Theory",
+        "label": "4. The Timeline: History vs. Myth",
+        "category": "evidence",
+        "isMacro": true,
+        "summary": "Step 4: Looking at how fast the Christian claims spread and comparing it to ancient myths.",
+        "publicSummary": ["Was the Resurrection story a later legendary addition?", "How fast did the 'Telephone Game' distort the facts?", "Or is there evidence of early, immediate belief?"],
+        "presenterNotes": "Dismantles the 'Telephone Game' argument that the story grew over hundreds of years."
+      }
+    },
+    {
+      "id": "fact_creeds",
+      "parentId": "grp_mythicism",
+      "position": { "x": 0, "y": -200 },
+      "data": {
+        "label": "Fact: The Very Early Creeds",
+        "category": "evidence",
+        "summary": "Historical analysis proves belief in the Resurrection arose almost instantly.",
+        "publicSummary": ["In 1 Corinthians 15, Paul recites an early Christian creed.", "Even critical secular scholars date this creed to within 1–5 years of the actual crucifixion."],
+        "presenterNotes": "Zero room for myth to develop and displace eyewitness memory."
+      }
+    },
+    {
+      "id": "bias_naturalism",
+      "parentId": "grp_mythicism",
+      "position": { "x": -300, "y": 0 },
+      "data": {
+        "label": "The Anti-Miracle Bias",
         "category": "objection",
-        "summary": "The resurrection story was a myth added decades later.",
-        "publicSummary": [
-          "Posits that Jesus was merely a profoundly good human teacher.",
-          "Over the course of decades or centuries, his followers played the 'telephone game'.",
-          "They embellished his life with mythological elements commonly found in Roman mystery religions.",
-          "Eventually resulting in the supernatural claims found in the modern New Testament."
-        ],
-        "presenterNotes": "Often linked to 'Zeitgeist' or Richard Carrier's mythicism. They claim Jesus was patterned after dying-and-rising gods like Mithras, Osiris, or Horus."
+        "summary": "The underlying philosophical assumption that miracles simply cannot happen.",
+        "publicSummary": ["If one starts with the absolute assumption that miracles are impossible, they must invent a naturalistic theory, no matter how unlikely it is."],
+        "presenterNotes": "The philosophical root of mythicism (David Hume)."
+      }
+    },
+    {
+      "id": "obj_legend",
+      "parentId": "grp_mythicism",
+      "position": { "x": 0, "y": 100 },
+      "data": {
+        "label": "Is It Just a Evolving Legend?",
+        "category": "objection",
+        "summary": "The resurrection was a myth added decades or centuries later by overzealous followers.",
+        "publicSummary": ["Like a giant game of Telephone, the story started as a normal execution and grew into a massive legend over generations."],
+        "presenterNotes": "Often tied to vague 'Zeitgeist' pagan copycat theories."
       }
     },
     {
       "id": "ref_legend",
-      "position": { "x": 450, "y": 800 },
+      "parentId": "grp_mythicism",
+      "position": { "x": -200, "y": 300 },
       "data": {
-        "label": "Too Early For Legend",
+        "label": "Legends Need More Time",
         "category": "refutation",
-        "summary": "Creeds and eyewitnesses predate myth development.",
-        "publicSummary": [
-          "Greco-Roman historians observe it generally takes 2 to 3 generations for mythological corruption to wipe out a historical core.",
-          "Eyewitnesses must die off to stop correcting the exaggerations.",
-          "The early creeds (1 Cor 15) establish the resurrection belief firmly within 1 to 5 years of the cross.",
-          "The alleged parallels to pagan gods (Mithras/Horus) have been thoroughly debunked by modern historians of antiquity."
-        ],
-        "presenterNotes": "A.N. Sherwin-White (Oxford historian) stated that even two generations is too short a span for legend to wipe out the solid core of historical facts. The New Testament was completed well within the lifetime of the original eyewitnesses."
+        "summary": "The early creeds and the presence of living eyewitnesses prevented myth formation.",
+        "publicSummary": ["Roman historian A.N. Sherwin-White demonstrated that it takes at least two full generations for myth to overwrite a historical core.", "The Jesus story spread while thousands of eyewitnesses were still walking around capable of debunking it."],
+        "presenterNotes": "Too early for legend."
       }
     },
     {
       "id": "obj_conflated",
-      "position": { "x": 800, "y": 600 },
+      "parentId": "grp_mythicism",
+      "position": { "x": 300, "y": 100 },
       "data": {
-        "label": "Conflated Ad-Hoc Theories",
+        "label": "The 'Kitchen Sink' Theory",
         "category": "objection",
-        "summary": "Combining multiple skeptical theories to cover the holes.",
-        "publicSummary": [
-          "Since no single theory (Hallucination, Legend, etc.) works on its own, modern skeptics combine them.",
-          "Example: 'Peter hallucinated, then they went to the wrong tomb to check, and then 30 years later Legends exaggerated the story.'",
-          "This is the approach taken by scholars like Bart Ehrman."
-        ],
-        "presenterNotes": "Notice how they must continuously invent ad-hoc 'rescue devices' to prop up a failing naturalistic hypothesis. It becomes a Rube Goldberg machine of extreme improbabilities."
+        "summary": "Skeptics combine multiple, conflicting theories to try and cover the historical holes.",
+        "publicSummary": ["Since Hallucination fails to explain the empty tomb, and the Stolen Body fails to explain the cowardice of the disciples, skeptics often try to combine them.", "\"They went to the wrong tomb AND hallucinated AND someone stole the body.\""],
+        "presenterNotes": "A Rube Goldberg machine of extreme improbabilities."
       }
     },
     {
       "id": "ref_conflated",
-      "position": { "x": 800, "y": 800 },
+      "parentId": "grp_mythicism",
+      "position": { "x": 300, "y": 350 },
       "data": {
-        "label": "Ockham's Razor",
+        "label": "Ockham's Razor: The Simplest Answer",
         "category": "refutation",
         "summary": "The Resurrection effortlessly explains all the data at once.",
-        "publicSummary": [
-          "Ockham's Razor states that the hypothesis with the fewest ad-hoc assumptions is usually correct.",
-          "Combining 3 or 4 failed, highly improbable theories multiplies the improbability exponentially.",
-          "The Resurrection hypothesis intrinsically and effortlessly explains the empty tomb, the appearances, AND the transformation in one unified stroke."
-        ],
-        "presenterNotes": "The Resurrection has unmatched 'Explanatory Power' and 'Explanatory Scope' compared to every naturalistic theory ever posited."
+        "publicSummary": ["Ockham's Razor states the most elegant, simple explanation that covers all facts is usually true.", "Only the Resurrection simultaneously explains the Tomb, the Appearances, and the Transformation without absurd logical gymnastics."],
+        "presenterNotes": "The Resurrection has unparalleled explanatory power."
       }
     }
   ],
   "edges": [
-    { "id": "e_prior_1", "source": "ref_strobel_creator", "target": "core_resurrection", "animated": true, "label": "(+) Prior Probability", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
-    { "id": "e_prior_2", "source": "ref_worldview_science", "target": "core_resurrection", "animated": true, "label": "(+) Enables Miracles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
-    { "id": "e_prior_3", "source": "ref_worldview_meaning", "target": "core_resurrection", "animated": true, "label": "(+) Moral Context", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_ww1", "source": "ref_strobel_creator", "target": "ref_worldview_science", "animated": true, "type": "smoothstep" },
+    { "id": "e_ww2", "source": "ref_worldview_science", "target": "context_claims", "animated": true, "type": "smoothstep" },
+    { "id": "e_ww3", "source": "context_claims", "target": "fact_crucifixion", "animated": true, "type": "smoothstep" },
+    { "id": "e_ww_obj1", "source": "fact_crucifixion", "target": "obj_swoon", "animated": true, "label": "But did he really die?", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
+    { "id": "e_ww_ref1", "source": "ref_swoon_medical", "target": "obj_swoon", "animated": true, "label": "Medical science says yes.", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
 
-    { "id": "e_ctx_core", "source": "context_claims", "target": "core_resurrection", "animated": true, "label": "(+) Contextualizes", "type": "smoothstep" },
-    { "id": "e_ref_lennox", "source": "ref_worldview_science", "target": "context_claims", "animated": true, "label": "(+) Defends Rationality", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
-    { "id": "e_ref_zach", "source": "ref_worldview_meaning", "target": "context_claims", "animated": true, "label": "(+) Defends Meaning", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
-    { "id": "e_ref_strobel_2", "source": "ref_strobel_creator", "target": "ref_worldview_science", "animated": true, "label": "(+) Points to Designer", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
-    
-    { "id": "e_core_crux", "source": "fact_crucifixion", "target": "core_resurrection", "animated": true, "label": "(+) Requires", "type": "smoothstep" },
-    { "id": "e_core_tomb", "source": "fact_empty_tomb", "target": "core_resurrection", "animated": true, "label": "(+) Demands", "type": "smoothstep" },
-    { "id": "e_core_app", "source": "fact_appearances", "target": "core_resurrection", "animated": true, "label": "(+) Encounters", "type": "smoothstep" },
-    { "id": "e_core_trans", "source": "fact_transformation", "target": "core_resurrection", "animated": true, "label": "(+) Caused By", "type": "smoothstep" },
-    { "id": "e_core_sk", "source": "fact_skeptics", "target": "core_resurrection", "animated": true, "label": "(+) Only Explanation", "type": "smoothstep" },
-    { "id": "e_core_cr", "source": "fact_creeds", "target": "core_resurrection", "animated": true, "label": "(+) Immediate Proclamation", "type": "smoothstep" },
+    { "id": "e_tomb_obj1", "source": "fact_empty_tomb", "target": "obj_stolen", "animated": true, "label": "Could it be a hoax?", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
+    { "id": "e_tomb_ref1", "source": "ref_stolen_cowardice", "target": "obj_stolen", "animated": true, "label": "Martyrdom contradicts this.", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_tomb_obj2", "source": "fact_empty_tomb", "target": "obj_wrong_tomb", "animated": true, "label": "Could it be a mistake?", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
+    { "id": "e_tomb_ref2", "source": "ref_wrong_tomb", "target": "obj_wrong_tomb", "animated": true, "label": "Romans would have exposed it.", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
 
-    { "id": "e_chron_1", "source": "fact_crucifixion", "target": "fact_empty_tomb", "animated": true, "label": "Chronology", "type": "smoothstep", "style": { "strokeWidth": 1, "strokeDasharray": "2,2", "opacity": 0.5 } },
-    { "id": "e_chron_2", "source": "fact_empty_tomb", "target": "fact_appearances", "animated": true, "label": "Chronology", "type": "smoothstep", "style": { "strokeWidth": 1, "strokeDasharray": "2,2", "opacity": 0.5 } },
-    { "id": "e_chron_3", "source": "fact_appearances", "target": "fact_transformation", "animated": true, "label": "Chronology", "type": "smoothstep", "style": { "strokeWidth": 1, "strokeDasharray": "2,2", "opacity": 0.5 } },
-    { "id": "e_chron_4", "source": "fact_transformation", "target": "fact_skeptics", "animated": true, "label": "Chronology", "type": "smoothstep", "style": { "strokeWidth": 1, "strokeDasharray": "2,2", "opacity": 0.5 } },
-    { "id": "e_chron_5", "source": "fact_skeptics", "target": "fact_creeds", "animated": true, "label": "Chronology", "type": "smoothstep", "style": { "strokeWidth": 1, "strokeDasharray": "2,2", "opacity": 0.5 } },
+    { "id": "e_app_1", "source": "fact_appearances", "target": "fact_transformation", "animated": true, "type": "smoothstep" },
+    { "id": "e_app_2", "source": "fact_transformation", "target": "fact_skeptics", "animated": true, "type": "smoothstep" },
+    { "id": "e_app_obj1", "source": "fact_appearances", "target": "obj_hallucination", "animated": true, "label": "Could it be a projection?", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
+    { "id": "e_app_ref1", "source": "ref_hallucination", "target": "obj_hallucination", "animated": true, "label": "Psychology rejects group visions.", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_app_obj2", "source": "fact_transformation", "target": "obj_dissonance", "animated": true, "label": "Was it a coping mechanism?", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
+    { "id": "e_app_ref2", "source": "ref_dissonance", "target": "obj_dissonance", "animated": true, "label": "Doesn't fit 1st-century beliefs.", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
 
-    { "id": "e_ref_strobel_1", "source": "ref_strobel_legal", "target": "fact_appearances", "animated": true, "label": "(+) Validates Evidence", "type": "smoothstep" },
-
-    { "id": "e_nat_res", "source": "bias_naturalism", "target": "core_resurrection", "animated": true, "label": "(-) A-Priori Rejection", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_nat_swoon", "source": "bias_naturalism", "target": "obj_swoon", "animated": true, "label": "(+) Forces Alternative", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
-    { "id": "e_nat_stolen", "source": "bias_naturalism", "target": "obj_stolen", "animated": true, "label": "(+) Forces Alternative", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
-
-    { "id": "e_obj_sw", "source": "obj_swoon", "target": "fact_crucifixion", "animated": true, "label": "(-) Attempts Nullify", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_ref_sw", "source": "ref_swoon_medical", "target": "obj_swoon", "animated": true, "label": "(-) Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
-
-    { "id": "e_obj_st", "source": "obj_stolen", "target": "fact_empty_tomb", "animated": true, "label": "(-) Explains Away", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_ref_st", "source": "ref_stolen_cowardice", "target": "obj_stolen", "animated": true, "label": "(-) Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
-
-    { "id": "e_obj_wt", "source": "obj_wrong_tomb", "target": "fact_empty_tomb", "animated": true, "label": "(-) Accidental Error", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_ref_wt", "source": "ref_wrong_tomb", "target": "obj_wrong_tomb", "animated": true, "label": "(-) Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
-
-    { "id": "e_obj_hal", "source": "obj_hallucination", "target": "fact_appearances", "animated": true, "label": "(-) Dismisses", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_ref_hal_1", "source": "ref_hallucination", "target": "obj_hallucination", "animated": true, "label": "(-) Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
-    { "id": "e_ref_hal_2", "source": "fact_empty_tomb", "target": "obj_hallucination", "animated": false, "label": "(-) Vetoes", "type": "smoothstep", "style": { "stroke": "#3b82f6", "strokeWidth": 2 } },
-
-    { "id": "e_obj_dis", "source": "obj_dissonance", "target": "fact_transformation", "animated": true, "label": "(-) Psych Framing", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_ref_dis", "source": "ref_dissonance", "target": "obj_dissonance", "animated": true, "label": "(-) Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
-
-    { "id": "e_obj_leg", "source": "obj_legend", "target": "fact_creeds", "animated": true, "label": "(-) Assumes Myth", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_ref_leg", "source": "ref_legend", "target": "obj_legend", "animated": true, "label": "(-) Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
-
-    { "id": "e_hal_con", "source": "obj_hallucination", "target": "obj_conflated", "animated": true, "label": "(+) Demands Complexity", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
-    { "id": "e_st_con", "source": "obj_stolen", "target": "obj_conflated", "animated": true, "label": "(+) Demands Complexity", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
-    { "id": "e_leg_con", "source": "obj_legend", "target": "obj_conflated", "animated": true, "label": "(+) Demands Complexity", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
-
-    { "id": "e_obj_con", "source": "obj_conflated", "target": "core_resurrection", "animated": true, "label": "(-) Combines Flaws", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_ref_con", "source": "ref_conflated", "target": "obj_conflated", "animated": true, "label": "(-) Ockham's Razor", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } }
+    { "id": "e_myth_obj1", "source": "bias_naturalism", "target": "obj_legend", "animated": true, "label": "Requires skepticism", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
+    { "id": "e_myth_obj2", "source": "fact_creeds", "target": "obj_legend", "animated": true, "label": "What about the telephone game?", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
+    { "id": "e_myth_ref1", "source": "ref_legend", "target": "obj_legend", "animated": true, "label": "Not enough time passed.", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_myth_obj3", "source": "obj_legend", "target": "obj_conflated", "animated": true, "label": "Try to combine theories?", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
+    { "id": "e_myth_ref2", "source": "ref_conflated", "target": "obj_conflated", "animated": true, "label": "Highly improbable.", "style": { "stroke": "#10b981", "strokeWidth": 2 } }
   ]
 }
