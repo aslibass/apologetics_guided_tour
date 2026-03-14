@@ -21,7 +21,7 @@ export function AboutModal({ isOpen, onClose }) {
           <X className="w-5 h-5" />
         </button>
 
-        <h2 className="text-2xl font-bold mb-6 text-foreground">How to Use This Investigation</h2>
+        <h2 className="text-2xl font-bold mb-6 text-foreground">Resurrection: The Evidence Map</h2>
 
         <div className="space-y-8 text-muted-foreground">
           {/* Instructions Section */}
@@ -32,9 +32,9 @@ export function AboutModal({ isOpen, onClose }) {
             </h3>
             <ul className="list-disc list-inside space-y-2 ml-2">
               <li><strong className="text-foreground">Start at the Macro View:</strong> The application launches with 4 main sequential "Spindles" (Foundation, Tomb, Witnesses, Timeline).</li>
-              <li><strong className="text-foreground">Drill Down:</strong> Click on any of the large numbered bubbles to dive *into* that specific debate. The screen will clear to show you only the relevant facts and counter-arguments.</li>
-              <li><strong className="text-foreground">Read the Details:</strong> Click on any node inside a subsystem to open the side panel. Here you will find Public Summaries and deeper Presenter Notes.</li>
-              <li><strong className="text-foreground">Return to Top:</strong> Use the "Macro System" breadcrumb button in the top left corner at any time to return to the bird's-eye view of the argument.</li>
+              <li><strong className="text-foreground">Drill Down & Read:</strong> Click on any of the large numbered bubbles to dive into that specific debate. Click on any evidence node inside to open its Side Drawer for a public summary and deep dive into skeptical pushbacks.</li>
+              <li><strong className="text-foreground">Take a Guided Tour:</strong> Select a tour from the top navigation to experience a cinematic, automated journey through the arguments, perfect for learning the flow of the debate.</li>
+              <li><strong className="text-foreground">Presenter Mode:</strong> Toggle the 'Eye' icon in the top header to reveal deep academic references inside the side drawer, specifically designed to stay hidden from general audiences but available for speakers on stage.</li>
             </ul>
           </section>
 

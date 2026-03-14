@@ -244,7 +244,7 @@ export default function App() {
             className="pointer-events-auto flex items-center gap-2 bg-card/90 backdrop-blur-md border border-border/50 px-5 py-2.5 rounded-full shadow-lg text-foreground hover:bg-muted transition-all font-medium hover:scale-105 active:scale-95 shadow-primary/5"
           >
             <Info className="w-5 h-5 text-primary" />
-            About & Sources
+            About
           </button>
         </div>
       </header>
