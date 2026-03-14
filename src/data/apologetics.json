@@ -226,8 +226,24 @@
     },
 
     {
+      "id": "bias_naturalism",
+      "position": { "x": -1500, "y": 600 },
+      "data": {
+        "label": "A-Priori Naturalism",
+        "category": "objection",
+        "summary": "The unquestioned presupposition that miracles are categorically impossible.",
+        "publicSummary": [
+          "Not a conclusion based on evidence, but a philosophical starting point.",
+          "Assumes the physical universe is a closed system that cannot be interfered with.",
+          "Forces the skeptic to reject any miraculous claim before looking at the historical data.",
+          "David Hume famously argued that miracles are by definition the least probable event."
+        ],
+        "presenterNotes": "This is the true root cause of most skeptical objections. As C.S. Lewis noted, if you believe beforehand that miracles are impossible, then any naturalistic explanation, no matter how absurd or complex (like swooning on a cross), will be preferred over a resurrection."
+      }
+    },
+    {
       "id": "obj_swoon",
-      "position": { "x": -1000, "y": 600 },
+      "position": { "x": -1150, "y": 600 },
       "data": {
         "label": "Swoon Theory (Apparent Death)",
         "category": "objection",
@@ -454,40 +470,58 @@
     }
   ],
   "edges": [
-    { "id": "e_ctx_core", "source": "context_claims", "target": "core_resurrection", "animated": true, "label": "Contextualizes", "type": "smoothstep" },
-    { "id": "e_ref_lennox", "source": "ref_worldview_science", "target": "context_claims", "animated": true, "label": "Defends Rationality", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
-    { "id": "e_ref_zach", "source": "ref_worldview_meaning", "target": "context_claims", "animated": true, "label": "Defends Meaning", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
-    { "id": "e_ref_strobel_2", "source": "ref_strobel_creator", "target": "ref_worldview_science", "animated": true, "label": "Points to Designer", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_prior_1", "source": "ref_strobel_creator", "target": "core_resurrection", "animated": true, "label": "(+) Prior Probability", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_prior_2", "source": "ref_worldview_science", "target": "core_resurrection", "animated": true, "label": "(+) Enables Miracles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_prior_3", "source": "ref_worldview_meaning", "target": "core_resurrection", "animated": true, "label": "(+) Moral Context", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+
+    { "id": "e_ctx_core", "source": "context_claims", "target": "core_resurrection", "animated": true, "label": "(+) Contextualizes", "type": "smoothstep" },
+    { "id": "e_ref_lennox", "source": "ref_worldview_science", "target": "context_claims", "animated": true, "label": "(+) Defends Rationality", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_ref_zach", "source": "ref_worldview_meaning", "target": "context_claims", "animated": true, "label": "(+) Defends Meaning", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_ref_strobel_2", "source": "ref_strobel_creator", "target": "ref_worldview_science", "animated": true, "label": "(+) Points to Designer", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
     
-    { "id": "e_core_crux", "source": "fact_crucifixion", "target": "core_resurrection", "animated": true, "label": "Requires", "type": "smoothstep" },
-    { "id": "e_core_tomb", "source": "fact_empty_tomb", "target": "core_resurrection", "animated": true, "label": "Demands Explanation", "type": "smoothstep" },
-    { "id": "e_core_app", "source": "fact_appearances", "target": "core_resurrection", "animated": true, "label": "Direct Encounters", "type": "smoothstep" },
-    { "id": "e_core_trans", "source": "fact_transformation", "target": "core_resurrection", "animated": true, "label": "Caused By", "type": "smoothstep" },
-    { "id": "e_core_sk", "source": "fact_skeptics", "target": "core_resurrection", "animated": true, "label": "Only Explanation", "type": "smoothstep" },
-    { "id": "e_core_cr", "source": "fact_creeds", "target": "core_resurrection", "animated": true, "label": "Immediate Proclamation", "type": "smoothstep" },
+    { "id": "e_core_crux", "source": "fact_crucifixion", "target": "core_resurrection", "animated": true, "label": "(+) Requires", "type": "smoothstep" },
+    { "id": "e_core_tomb", "source": "fact_empty_tomb", "target": "core_resurrection", "animated": true, "label": "(+) Demands", "type": "smoothstep" },
+    { "id": "e_core_app", "source": "fact_appearances", "target": "core_resurrection", "animated": true, "label": "(+) Encounters", "type": "smoothstep" },
+    { "id": "e_core_trans", "source": "fact_transformation", "target": "core_resurrection", "animated": true, "label": "(+) Caused By", "type": "smoothstep" },
+    { "id": "e_core_sk", "source": "fact_skeptics", "target": "core_resurrection", "animated": true, "label": "(+) Only Explanation", "type": "smoothstep" },
+    { "id": "e_core_cr", "source": "fact_creeds", "target": "core_resurrection", "animated": true, "label": "(+) Immediate Proclamation", "type": "smoothstep" },
 
-    { "id": "e_ref_strobel_1", "source": "ref_strobel_legal", "target": "fact_appearances", "animated": true, "label": "Validates Testimony", "type": "smoothstep" },
+    { "id": "e_chron_1", "source": "fact_crucifixion", "target": "fact_empty_tomb", "animated": true, "label": "Chronology", "type": "smoothstep", "style": { "strokeWidth": 1, "strokeDasharray": "2,2", "opacity": 0.5 } },
+    { "id": "e_chron_2", "source": "fact_empty_tomb", "target": "fact_appearances", "animated": true, "label": "Chronology", "type": "smoothstep", "style": { "strokeWidth": 1, "strokeDasharray": "2,2", "opacity": 0.5 } },
+    { "id": "e_chron_3", "source": "fact_appearances", "target": "fact_transformation", "animated": true, "label": "Chronology", "type": "smoothstep", "style": { "strokeWidth": 1, "strokeDasharray": "2,2", "opacity": 0.5 } },
+    { "id": "e_chron_4", "source": "fact_transformation", "target": "fact_skeptics", "animated": true, "label": "Chronology", "type": "smoothstep", "style": { "strokeWidth": 1, "strokeDasharray": "2,2", "opacity": 0.5 } },
+    { "id": "e_chron_5", "source": "fact_skeptics", "target": "fact_creeds", "animated": true, "label": "Chronology", "type": "smoothstep", "style": { "strokeWidth": 1, "strokeDasharray": "2,2", "opacity": 0.5 } },
 
-    { "id": "e_obj_sw", "source": "obj_swoon", "target": "fact_crucifixion", "animated": true, "label": "Attempts to Nullify", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_ref_sw", "source": "ref_swoon_medical", "target": "obj_swoon", "animated": true, "label": "Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_ref_strobel_1", "source": "ref_strobel_legal", "target": "fact_appearances", "animated": true, "label": "(+) Validates Evidence", "type": "smoothstep" },
 
-    { "id": "e_obj_st", "source": "obj_stolen", "target": "fact_empty_tomb", "animated": true, "label": "Explains Away", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_ref_st", "source": "ref_stolen_cowardice", "target": "obj_stolen", "animated": true, "label": "Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_nat_res", "source": "bias_naturalism", "target": "core_resurrection", "animated": true, "label": "(-) A-Priori Rejection", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
+    { "id": "e_nat_swoon", "source": "bias_naturalism", "target": "obj_swoon", "animated": true, "label": "(+) Forces Alternative", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
+    { "id": "e_nat_stolen", "source": "bias_naturalism", "target": "obj_stolen", "animated": true, "label": "(+) Forces Alternative", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
 
-    { "id": "e_obj_wt", "source": "obj_wrong_tomb", "target": "fact_empty_tomb", "animated": true, "label": "Accidental Error", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_ref_wt", "source": "ref_wrong_tomb", "target": "obj_wrong_tomb", "animated": true, "label": "Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_obj_sw", "source": "obj_swoon", "target": "fact_crucifixion", "animated": true, "label": "(-) Attempts Nullify", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
+    { "id": "e_ref_sw", "source": "ref_swoon_medical", "target": "obj_swoon", "animated": true, "label": "(-) Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
 
-    { "id": "e_obj_hal", "source": "obj_hallucination", "target": "fact_appearances", "animated": true, "label": "Dismisses Reality", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_ref_hal_1", "source": "ref_hallucination", "target": "obj_hallucination", "animated": true, "label": "Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
-    { "id": "e_ref_hal_2", "source": "fact_empty_tomb", "target": "obj_hallucination", "animated": false, "label": "Vetoes", "type": "smoothstep", "style": { "stroke": "#3b82f6", "strokeWidth": 2 } },
+    { "id": "e_obj_st", "source": "obj_stolen", "target": "fact_empty_tomb", "animated": true, "label": "(-) Explains Away", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
+    { "id": "e_ref_st", "source": "ref_stolen_cowardice", "target": "obj_stolen", "animated": true, "label": "(-) Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
 
-    { "id": "e_obj_dis", "source": "obj_dissonance", "target": "fact_transformation", "animated": true, "label": "Psychological Framing", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_ref_dis", "source": "ref_dissonance", "target": "obj_dissonance", "animated": true, "label": "Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_obj_wt", "source": "obj_wrong_tomb", "target": "fact_empty_tomb", "animated": true, "label": "(-) Accidental Error", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
+    { "id": "e_ref_wt", "source": "ref_wrong_tomb", "target": "obj_wrong_tomb", "animated": true, "label": "(-) Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
 
-    { "id": "e_obj_leg", "source": "obj_legend", "target": "fact_creeds", "animated": true, "label": "Assumes Late Myth", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_ref_leg", "source": "ref_legend", "target": "obj_legend", "animated": true, "label": "Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_obj_hal", "source": "obj_hallucination", "target": "fact_appearances", "animated": true, "label": "(-) Dismisses", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
+    { "id": "e_ref_hal_1", "source": "ref_hallucination", "target": "obj_hallucination", "animated": true, "label": "(-) Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+    { "id": "e_ref_hal_2", "source": "fact_empty_tomb", "target": "obj_hallucination", "animated": false, "label": "(-) Vetoes", "type": "smoothstep", "style": { "stroke": "#3b82f6", "strokeWidth": 2 } },
 
-    { "id": "e_obj_con", "source": "obj_conflated", "target": "core_resurrection", "animated": true, "label": "Combines Flaws", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
-    { "id": "e_ref_con", "source": "ref_conflated", "target": "obj_conflated", "animated": true, "label": "Ockham's Razor", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } }
+    { "id": "e_obj_dis", "source": "obj_dissonance", "target": "fact_transformation", "animated": true, "label": "(-) Psych Framing", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
+    { "id": "e_ref_dis", "source": "ref_dissonance", "target": "obj_dissonance", "animated": true, "label": "(-) Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+
+    { "id": "e_obj_leg", "source": "obj_legend", "target": "fact_creeds", "animated": true, "label": "(-) Assumes Myth", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
+    { "id": "e_ref_leg", "source": "ref_legend", "target": "obj_legend", "animated": true, "label": "(-) Dismantles", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } },
+
+    { "id": "e_hal_con", "source": "obj_hallucination", "target": "obj_conflated", "animated": true, "label": "(+) Demands Complexity", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
+    { "id": "e_st_con", "source": "obj_stolen", "target": "obj_conflated", "animated": true, "label": "(+) Demands Complexity", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
+    { "id": "e_leg_con", "source": "obj_legend", "target": "obj_conflated", "animated": true, "label": "(+) Demands Complexity", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" } },
+
+    { "id": "e_obj_con", "source": "obj_conflated", "target": "core_resurrection", "animated": true, "label": "(-) Combines Flaws", "type": "smoothstep", "style": { "stroke": "#ef4444", "strokeWidth": 2, "strokeDasharray": "5,5" }, "className": "edge-jagged" },
+    { "id": "e_ref_con", "source": "ref_conflated", "target": "obj_conflated", "animated": true, "label": "(-) Ockham's Razor", "type": "smoothstep", "style": { "stroke": "#10b981", "strokeWidth": 2 } }
   ]
 }
