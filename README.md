@@ -1,63 +1,56 @@
-# Christian Apologetics: Systems Thinking Web App
+# Resurrection: The Evidence Map
 
-A modern, interactive React web application designed to visually map out the logical, historical, and philosophical flow of Christian Apologetics—specifically focusing on the **"Minimal Facts"** approach to the Resurrection of Jesus Christ.
+A high-performance, interactive React web application designed to visually map out the logical, historical, and philosophical flow of Christian Apologetics. 
 
-Built with **React Flow**, **Tailwind CSS v4** (Dark Mode), and **Framer Motion**, this educational tool allows users to explore the causal links between historical evidence, skeptical objections, and logical refutations.
+Built with **React Flow**, **Tailwind CSS v4** (Dark Mode), and **Framer Motion**, this educational "Guided Discovery" tool allows users to explore the causal links between historical evidence, skeptical objections, and logical refutations through interactive, cascading Socratic dialogs.
 
----
+## 🗺️ The Architecture (53-Node Map)
 
-## 🗺️ Topics Covered (The 24-Node Map)
+Unlike traditional "spider-web" mind maps, The Evidence Map uses a custom **BFS (Breadth-First Search) Radial Tree Layout**. Nodes branch outward in strict chronological and logical sequences: `Hub → Entry Fact → Objection 1 → Refutation 1 → Objection 2 → Refutation 2...`.
 
-The application maps out 24 distinct interactive nodes, broken down into 4 philosophical categories:
+The application is logically structured into 6 main philosophical and historical hubs:
 
-### 🟡 1. The Core Event
-*   **The Resurrection of Christ:** The central axis of the Christian faith. All historical lines of evidence point to this event, and all objections attempt to explain it away.
-*   **Religio-Historical Context:** (Added per W.L. Craig) Miracles don't happen in a vacuum. Jesus' radical claims to divinity change the probability calculus.
+### 1. Worldview & The Cross
+Establishes the philosophical plausibility of God (Kalam Cosmological Argument, Fine-Tuning) and the historical bedrock certainty of Jesus's death by Roman execution, defeating arguments like the "Swoon Theory."
 
-### 🔵 2. The Historical "Minimal Facts" (Evidence)
-These are six foundational historical facts universally agreed upon by the vast majority of critical and secular New Testament historians:
-*   **Death by Crucifixion:** Jesus definitively died under Roman execution.
-*   **The Empty Tomb:** His tomb was found empty just days later by female followers.
-*   **Post-Mortem Appearances:** Individuals and groups experienced literal appearances of a risen Jesus.
-*   **Apostolic Transformation:** The terrified disciples suddenly became bold proclaimers willing to die for this specific claim.
-*   **Conversion of Skeptics:** Enemies like Paul and skeptics like James were radically converted by post-mortem appearances.
-*   **Early Creedal Traditions:** Belief in the resurrection (1 Cor 15) predates the New Testament writings by decades, eliminating the possibility of late-developing myth.
-*   **Journalistic/Legal Evidentiary Standard:** (Added per Lee Strobel) Applying modern legal corroboration standards to the eyewitness accounts makes the historical case extraordinarily robust.
+### 2. The Empty Tomb
+Examines the physical evidence in Jerusalem. Traces the burial by Joseph of Arimathea, the existence of the Roman Guard, and definitively refutes both the "Stolen Body" and "Wrong Tomb" theories.
 
-### 🔴 3. Skeptical Objections
-These are the six most prominent naturalistic theories attempting to explain away the historical data:
-*   **Swoon Theory (Apparent Death):** Did Jesus merely pass out on the cross and revive in the tomb?
-*   **Conspiracy / Stolen Body:** Did the disciples steal the corpse to fake a resurrection?
-*   **Wrong Tomb Theory:** Did the women just get lost and accidentally assume a miracle?
-*   **Mass Hallucination Theory:** Were the appearances merely grief-induced, collective hallucinations?
-*   **Cognitive Dissonance:** (Added per N.T. Wright) Was belief just a coping mechanism for a failed Messiah?
-*   **Mythicism & Legend Theory:** Was the whole story heavily exaggerated over centuries?
+### 3. The Eyewitnesses
+Explores the psychological data. Addresses the radical, instant transformation of the disciples, the physical nature of the appearances (eating, touching), and scientifically dismantles the "Mass Hallucination" and "Cognitive Dissonance" theories.
 
-### 🟢 4. Logical & Historical Refutations
-These nodes demonstrate the historical, medical, or psychological impossibility of each skeptical objection, alongside broader worldview defenses:
-*   **Medical Impossibility of Survival:** Roman crucifixion was infallibly fatal; the JAMA medical study confirms this. *(Refutes Swoon)*
-*   **Liars Make Poor Martyrs:** People don't willingly suffer torture and death for a lie they knowingly invented. *(Refutes Stolen Body)*
-*   **Authorities Knew the Location:** The Romans or Jewish leaders would have just produced the body to crush the movement. *(Refutes Wrong Tomb)*
-*   **Psycho-Medical Impossibility:** Group hallucinations do not exist, and hallucinations do not leave an empty tomb behind. *(Refutes Hallucination)*
-*   **Dissonance Changes Theology, Not Reality:** Coping mechanisms lead to spiritualizing a belief, not inventing a tangible, bodily resurrection. *(Refutes Dissonance)*
-*   **Historically Too Early for Legend:** The early creeds date to within 1-5 years of the cross, too early for myth to displace eyewitness memory. *(Refutes Legend)*
-*   **Science & The Rational Universe:** (John Lennox) True atheistic naturalism cannot justify why we trust our minds to do science; Christian Theism grounds rationality.
-*   **The Moral Architecture of Reality:** (Ravi Zacharias) Without God, one cannot logically defend objective moral values or human dignity.
-*   **Anthropic Principle / Fine-Tuning:** (Lee Strobel) The physical constants of the universe are balanced on a razor's edge from the Big Bang, strongly implying a Divine Architect.
+### 4. History vs. Myth
+Analyzes the timeline and comparison to ancient folklore. Verifies that early creedal traditions (within 1-5 years) predate legendary development, incorporates 'Hostile Scholar' agreements, and uses Ockham's Razor to dismantle the desperate "Conflated" theory.
 
----
+### 5. Morality & Meaning
+Connects the historical event to existential reality. Argues that without God, morality faces the "Grounding Problem," but the Resurrection secures infinite human dignity and worth.
+
+### 6. Evil & Suffering
+Tackles the ultimate emotional and logical problem of pain. Moves through the Free Will defense and Soul-Building, concluding with the Cross (God entering the pain) and the Resurrection as the prototype for the definitive "Future Restoration" of all things.
+
+## 🎯 Features
+
+*   **Cascading Serial Chains**: Every hub functions as an intuitive Socratic dialogue, guiding users step-by-step through historical claims and skeptical counter-claims.
+*   **Systemic Vetoes**: "Cross-Hub" links demonstrate how physical evidence in one area (e.g., the Empty Tomb) scientifically vetoes theories in another (e.g., Hallucinations).
+*   **Guided Tours**: Four automated, narrative pathways built into the system that highlight specific logical journeys:
+    1.  *The Historical Bedrock*
+    2.  *Radical Transformation*
+    3.  *The Skeptical Stress Test*
+    4.  *The Grand Finale (Cumulative Synthesis)*
+*   **Cumulative Case Climax**: All overarching paths inevitably converge onto a final "Beyond Reasonable Doubt" synthesis.
+*   **Immersive UI**: Features responsive panning, dynamic collision-free node spacing, and sliding detail drawers.
 
 ## 🚀 Tech Stack
+
 *   **Framework:** Vite + React
 *   **Interactive Canvas:** `@xyflow/react` (React Flow)
 *   **Styling Theme:** Tailwind CSS v4 (configured for immersive Dark Mode)
 *   **Animations:** `framer-motion` (for the responsive Right-Side sliding Drawer)
 *   **Icons:** `lucide-react`
-*   **Data Structure:** Powered directly by a clean, static `apologetics.json` state array.
-
----
+*   **Data Structure:** Powered directly by a strict, cascading `apologetics.json` state array.
 
 ## 🛠️ Getting Started
+
 To view this canvas locally on your machine:
 
 1.  **Install dependencies:**
