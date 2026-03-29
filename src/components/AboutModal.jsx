@@ -21,7 +21,7 @@ export function AboutModal({ isOpen, onClose }) {
           <X className="w-5 h-5" />
         </button>
 
-        <h2 className="text-2xl font-bold mb-6 text-foreground">Resurrection: The Evidence Map</h2>
+        <h2 className="text-2xl font-bold mb-6 text-foreground">Synthesis: The Resurrection Engine</h2>
 
         <div className="space-y-8 text-muted-foreground">
           {/* Instructions Section */}

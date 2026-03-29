@@ -227,7 +227,7 @@ export default function App() {
           {/* Main Title */}
           <div className="pointer-events-auto bg-card/90 backdrop-blur border border-border px-5 py-2 rounded-lg shadow-sm">
             <h1 className="font-extrabold text-lg tracking-tight bg-gradient-to-r from-primary via-amber-500 to-orange-600 bg-clip-text text-transparent leading-none">
-              Resurrection: The Evidence Map
+              Synthesis: The Resurrection Engine
             </h1>
           </div>
 

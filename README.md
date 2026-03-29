@@ -1,4 +1,4 @@
-# Resurrection: The Evidence Map
+# Synthesis: The Resurrection Engine
 
 A high-performance, interactive React web application designed to visually map out the logical, historical, and philosophical flow of Christian Apologetics. 
 
@@ -6,7 +6,7 @@ Built with **React Flow**, **Tailwind CSS v4** (Dark Mode), and **Framer Motion*
 
 ## 🗺️ The Architecture (53-Node Map)
 
-Unlike traditional "spider-web" mind maps, The Evidence Map uses a custom **BFS (Breadth-First Search) Radial Tree Layout**. Nodes branch outward in strict chronological and logical sequences: `Hub → Entry Fact → Objection 1 → Refutation 1 → Objection 2 → Refutation 2...`.
+Unlike traditional mind maps, The Resurrection Engine uses a **Horizontal Socratic Swimlane Layout**. Nodes branch outward in strict chronological and logical sequences: `Hub → Entry Fact → Objection 1 → Answer 1 → Objection 2 → Answer 2...`.
 
 The application is logically structured into 6 main philosophical and historical hubs:
 
