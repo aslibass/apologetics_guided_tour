@@ -22,8 +22,8 @@ const edgeTypes = {
 };
 
 export default function App() {
-  // Which hub is currently expanded (null = overview, string = hub id)
-  const [expandedHubId, setExpandedHubId] = useState(null);
+  // Which hubs are currently expanded
+  const [expandedHubs, setExpandedHubs] = useState(new Set());
   const [selectedNodeData, setSelectedNodeData] = useState(null);
   const [rfInstance, setRfInstance] = useState(null);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
@@ -34,138 +34,91 @@ export default function App() {
   const [tourStepIndex, setTourStepIndex] = useState(0);
   const [isToursMenuOpen, setIsToursMenuOpen] = useState(false);
 
-  // The hub IDs
+  // The hub IDs in preferred vertical rendering order
   const hubIds = ['grp_worldview_cross', 'grp_tomb', 'grp_appearances', 'grp_mythicism', 'grp_morality', 'grp_evil'];
-
-  // Hub positions (hexagonal layout around center)
-  const hubPositions = {
-    'core_resurrection': { x: 0, y: 0 },
-    'grp_morality': { x: 0, y: -450 },
-    'grp_worldview_cross': { x: -480, y: -240 },
-    'grp_tomb': { x: 480, y: -240 },
-    'grp_appearances': { x: -480, y: 240 },
-    'grp_mythicism': { x: 480, y: 240 },
-    'grp_evil': { x: 0, y: 450 },
-  };
+  const hubIds_set = new Set(hubIds);
 
   // Compute visible nodes and edges
   const { viewNodes, viewEdges } = useMemo(() => {
     const visibleIds = new Set(['core_resurrection', ...hubIds]);
 
-    if (expandedHubId) {
-      apologeticsData.nodes.forEach(n => {
-        if (n.parentId === expandedHubId) visibleIds.add(n.id);
-      });
-      if (expandedHubId === 'grp_mythicism') {
-        visibleIds.add('obj_conflated');
-        visibleIds.add('ref_conflated');
-      }
-    }
-
-    // Determine active edges first so we can use them for layout
     const activeEdges = apologeticsData.edges
-      .filter(e => visibleIds.has(e.source) && visibleIds.has(e.target))
       .map(e => ({
         ...e,
         type: 'causal',
         animated: false,
-        data: { ...e.data, active: true }
+        data: { ...e.data, active: false }
       }));
 
-    // Calculate layout tree from expanded hub using BFS
     const nodeLayout = {};
-    if (expandedHubId) {
-      const parentPos = hubPositions[expandedHubId];
-      const baseAngle = Math.atan2(parentPos.y, parentPos.x);
+    const Y_SPACING = 300;
+    const X_SPACING = 380;
+    
+    // 1. Calculate the Core and Hub Positions
+    nodeLayout['core_resurrection'] = { x: 0, y: 0 };
+    hubIds.forEach((id, index) => {
+      // Stack vertically and center them around y=0
+      const yPos = (index - 2.5) * Y_SPACING;
+      nodeLayout[id] = { x: X_SPACING, y: yPos, hubId: id, depth: 0 };
+    });
 
+    // 2. Expand activated hubs using BFS
+    if (expandedHubs.size > 0) {
+      // Build adjacency list for fast children lookup
       const adj = {};
-      activeEdges.forEach(e => {
+      apologeticsData.edges.forEach(e => {
         if (!adj[e.source]) adj[e.source] = [];
         adj[e.source].push(e.target);
       });
 
-      const nodeDepth = { [expandedHubId]: 0 };
-      const treeChildren = {};
-      const queue = [expandedHubId];
+      expandedHubs.forEach(hubId => {
+        if (!hubIds_set.has(hubId)) return;
+        
+        const queue = [{ id: hubId, depth: 0 }];
+        const visited = new Set([hubId]);
+        
+        while (queue.length > 0) {
+          const { id: currId, depth } = queue.shift();
+          
+          if (currId !== hubId) {
+             visibleIds.add(currId);
+             // Assign structural layout to children along the hub's specific Y-swimlane
+             const hubY = nodeLayout[hubId].y;
+             nodeLayout[currId] = { x: X_SPACING + (depth * X_SPACING), y: hubY, hubId, depth };
+          }
 
-      while (queue.length > 0) {
-        const curr = queue.shift();
-        if (adj[curr]) {
-          adj[curr].forEach(next => {
-            if (nodeDepth[next] === undefined) {
-              nodeDepth[next] = nodeDepth[curr] + 1;
-              if (!treeChildren[curr]) treeChildren[curr] = [];
-              treeChildren[curr].push(next);
-              queue.push(next);
-            }
-          });
-        }
-      }
-
-      // Recursively assign pie-slice angles to children
-      const spread = Math.PI * 0.85; // Max fan distance
-      const assignAngles = (nodeId, angleStart, angleEnd) => {
-        nodeLayout[nodeId] = {
-          depth: nodeDepth[nodeId],
-          angle: (angleStart + angleEnd) / 2
-        };
-        const children = treeChildren[nodeId] || [];
-        if (children.length > 0) {
-          const step = (angleEnd - angleStart) / children.length;
-          children.forEach((childId, i) => {
-            assignAngles(childId, angleStart + (i * step), angleStart + ((i + 1) * step));
-          });
-        }
-      };
-
-      assignAngles(expandedHubId, baseAngle - spread / 2, baseAngle + spread / 2);
-
-      // Fallback for unconnected items
-      apologeticsData.nodes.forEach(n => {
-        if (visibleIds.has(n.id) && !hubPositions[n.id] && !nodeLayout[n.id]) {
-          nodeLayout[n.id] = { depth: 1, angle: baseAngle };
+          if (adj[currId]) {
+            adj[currId].forEach(nextId => {
+              if (!visited.has(nextId)) {
+                visited.add(nextId);
+                queue.push({ id: nextId, depth: depth + 1 });
+              }
+            });
+          }
         }
       });
     }
 
+    // 3. Filter active edges
+    const finalEdges = activeEdges.filter(e => visibleIds.has(e.source) && visibleIds.has(e.target));
+    finalEdges.forEach(e => { e.data.active = true; });
+
+    // 4. Map final node objects
     const activeNodes = apologeticsData.nodes
       .filter(n => visibleIds.has(n.id))
       .map(n => {
-        let pos;
-
-        if (hubPositions[n.id]) {
-          pos = hubPositions[n.id];
-        } else if (expandedHubId && nodeLayout[n.id]) {
-          const parentPos = hubPositions[expandedHubId];
-          const layout = nodeLayout[n.id];
-          
-          // Outer radius expansion by depth
-          const depthRadius = 260; 
-          const radius = 260 + Math.max(0, layout.depth - 1) * depthRadius;
-
-          pos = {
-            x: parentPos.x + Math.cos(layout.angle) * radius,
-            y: parentPos.y + Math.sin(layout.angle) * radius,
-          };
-
-          // Hardcoded layout logic offset for custom orphan nodes
-          if (n.id === 'obj_conflated') { pos.x += 100; pos.y += 150; }
-          if (n.id === 'ref_conflated') { pos.x += 100; pos.y += 300; }
-        } else {
-          pos = { x: 0, y: 0 };
-        }
-
+        const layout = nodeLayout[n.id] || { x: 0, y: 0 };
         return {
           ...n,
-          position: pos,
+          position: { x: layout.x, y: layout.y },
           parentId: undefined,
           type: 'custom',
-          data: { ...n.data, dimmed: false }
+          data: { ...n.data, dimmed: expandedHubs.size > 0 && n.id !== 'core_resurrection' && !n.data.isHub && !expandedHubs.has(layout.hubId) }
         };
       });
 
-    return { viewNodes: activeNodes, viewEdges: activeEdges };
-  }, [expandedHubId]);
+    return { viewNodes: activeNodes, viewEdges: finalEdges };
+  }, [expandedHubs]);
 
   const [nodes, setNodes] = useState(viewNodes);
   const [edges, setEdges] = useState(viewEdges);
@@ -175,22 +128,14 @@ export default function App() {
     setNodes(viewNodes);
     setEdges(viewEdges);
     if (rfInstance && !activeTour) {
-      if (expandedHubId) {
-        // Zoom to fit just the hub + its children
-        const clusterIds = [expandedHubId, 'core_resurrection'];
-        apologeticsData.nodes.forEach(n => {
-          if (n.parentId === expandedHubId) clusterIds.push(n.id);
-        });
-        setTimeout(() => rfInstance.fitView({ 
-          nodes: clusterIds.map(id => ({ id })), 
-          padding: 0.3, 
-          duration: 600 
-        }), 50);
+      if (expandedHubs.size > 0) {
+        // Fit view to all visible expanded elements
+        setTimeout(() => rfInstance.fitView({ padding: 0.3, duration: 800 }), 50);
       } else {
         setTimeout(() => rfInstance.fitView({ padding: 0.4, duration: 600 }), 50);
       }
     }
-  }, [viewNodes, viewEdges, rfInstance, activeTour, expandedHubId]);
+  }, [viewNodes, viewEdges, rfInstance, activeTour, expandedHubs]);
 
   // Tour auto-focus
   React.useEffect(() => {
@@ -200,9 +145,9 @@ export default function App() {
         const targetNode = apologeticsData.nodes.find(n => n.id === currentStepId);
         
         if (targetNode) {
-          const requiredHub = targetNode.parentId || null;
-          if (expandedHubId !== requiredHub) {
-            setExpandedHubId(requiredHub);
+          const requiredHub = targetNode.parentId || targetNode.id;
+          if (requiredHub && !expandedHubs.has(requiredHub) && hubIds_set.has(requiredHub)) {
+            setExpandedHubs(new Set([requiredHub]));
             setTimeout(() => focusNode(currentStepId, targetNode), 400);
           } else {
             focusNode(currentStepId, targetNode);
@@ -236,17 +181,19 @@ export default function App() {
     []
   );
 
-  // Click handler — the heart of the concentric ring interaction
-  const hubIds_set = new Set(['grp_worldview_cross', 'grp_tomb', 'grp_appearances', 'grp_mythicism', 'grp_morality', 'grp_evil']);
-  
   const onNodeClick = React.useCallback((event, node) => {
     if (node.id === 'core_resurrection') {
-      // Click core → collapse to overview
-      setExpandedHubId(null);
+      // Click core → collapse everything to overview
+      setExpandedHubs(new Set());
       setSelectedNodeData(null);
     } else if (hubIds_set.has(node.id)) {
-      // Click hub → expand/collapse its children
-      setExpandedHubId(prev => prev === node.id ? null : node.id);
+      // Click hub → toggle its specific swimlane independently
+      setExpandedHubs(prev => {
+        const next = new Set(prev);
+        if (next.has(node.id)) next.delete(node.id);
+        else next.add(node.id);
+        return next;
+      });
       setSelectedNodeData(null);
     } else {
       // Click child → open drawer
@@ -276,21 +223,21 @@ export default function App() {
           <div className="pointer-events-auto flex items-center gap-2 bg-card/80 backdrop-blur border border-border px-4 py-2 rounded-lg shadow-sm hidden md:flex">
           <button 
             onClick={() => {
-              setExpandedHubId(null);
+              setExpandedHubs(new Set());
               setSelectedNodeData(null);
               setActiveTour(null);
             }}
-            className={`flex items-center gap-2 font-medium transition-colors ${!expandedHubId ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
+            className={`flex items-center gap-2 font-medium transition-colors ${expandedHubs.size === 0 ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
           >
             <Home className="w-4 h-4" />
             Overview
           </button>
           
-          {expandedHubId && (
+          {expandedHubs.size > 0 && (
             <>
               <ChevronRight className="w-4 h-4 text-muted-foreground" />
               <span className="font-semibold text-foreground">
-                {apologeticsData.nodes.find(n => n.id === expandedHubId)?.data.label}
+                {expandedHubs.size} Active {expandedHubs.size === 1 ? 'Chain' : 'Chains'}
               </span>
             </>
           )}
