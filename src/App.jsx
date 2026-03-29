@@ -156,7 +156,8 @@ export default function App() {
         if (targetNode) {
           const requiredHub = targetNode.parentId || targetNode.id;
           if (requiredHub && !expandedHubs.has(requiredHub) && hubIds_set.has(requiredHub)) {
-            setExpandedHubs(new Set([requiredHub]));
+            // Keep previous hubs open during the tour so systemic veto cross-links remain visible
+            setExpandedHubs(prev => new Set([...prev, requiredHub]));
             setTimeout(() => focusNode(currentStepId, targetNode), 400);
           } else {
             focusNode(currentStepId, targetNode);
@@ -172,10 +173,11 @@ export default function App() {
     if (rfNode) {
       const nWidth = rfNode.measured?.width || 250;
       const nHeight = rfNode.measured?.height || 150;
+      // In horizontal layout, we need to zoom out slightly more to see the parallel swimlane structure
       rfInstance.setCenter(
-        rfNode.position.x + (nWidth / 2) + 250, 
+        rfNode.position.x + (nWidth / 2) + 200, 
         rfNode.position.y + (nHeight / 2), 
-        { zoom: 0.85, duration: 800 }
+        { zoom: 0.75, duration: 800 }
       );
     }
   };
@@ -289,6 +291,7 @@ export default function App() {
                   <button
                     key={tour.tourId}
                     onClick={() => {
+                      setExpandedHubs(new Set()); // Clear canvas for maximum focus
                       setActiveTour(tour);
                       setTourStepIndex(0);
                       setIsToursMenuOpen(false);
