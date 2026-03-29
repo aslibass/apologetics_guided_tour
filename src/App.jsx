@@ -54,15 +54,23 @@ export default function App() {
     const Y_SPACING = 300;
     const X_SPACING = 380;
     
+    // 0. Build quick map of Node ID -> Parent Hub ID to enforce swimlane bounds
+    const nodeParentMap = {};
+    apologeticsData.nodes.forEach(n => {
+       nodeParentMap[n.id] = n.parentId || null;
+    });
+
     // 1. Calculate the Core and Hub Positions
     nodeLayout['core_resurrection'] = { x: 0, y: 0 };
+    nodeLayout['core_cumulative_case'] = { x: 3000, y: 0 }; // Permanently anchor the Grand Finale
+    
     hubIds.forEach((id, index) => {
       // Stack vertically and center them around y=0
       const yPos = (index - 2.5) * Y_SPACING;
       nodeLayout[id] = { x: X_SPACING, y: yPos, hubId: id, depth: 0 };
     });
 
-    // 2. Expand activated hubs using BFS
+    // 2. Expand activated hubs using Constrained BFS
     if (expandedHubs.size > 0) {
       // Build adjacency list for fast children lookup
       const adj = {};
@@ -89,7 +97,8 @@ export default function App() {
 
           if (adj[currId]) {
             adj[currId].forEach(nextId => {
-              if (!visited.has(nextId)) {
+              // CRITICAL CONSTRAINT: The next node MUST physically belong to this Hub sequence.
+              if (!visited.has(nextId) && nodeParentMap[nextId] === hubId) {
                 visited.add(nextId);
                 queue.push({ id: nextId, depth: depth + 1 });
               }
