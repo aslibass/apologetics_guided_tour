@@ -1,50 +1,54 @@
 {
   "tours": [
     {
-      "tourId": "tour_engine",
-      "title": "1. The Historical Bedrock",
-      "description": "Establishing the undeniable historical facts agreed upon by most scholars.",
+      "tourId": "tour_1_tomb",
+      "title": "1. Socratic Dialogue: The Tomb",
+      "description": "Watch how a historical claim survives naturalistic objections step by step.",
       "steps": [
-        "fact_crucifixion",
         "fact_empty_tomb",
-        "fact_appearances",
-        "fact_nonchristian",
-        "fact_hostile_agreement"
+        "obj_stolen",
+        "ref_stolen_cowardice",
+        "obj_wrong_tomb",
+        "ref_wrong_tomb"
       ]
     },
     {
-      "tourId": "tour_transformation",
-      "title": "2. Radical Transformation",
-      "description": "The psychological paradigm shift of the early eyewitnesses.",
+      "tourId": "tour_2_appearances",
+      "title": "2. Psychological Anomalies",
+      "description": "Tracing the sudden, radical paradigm shift of the earliest eyewitnesses.",
       "steps": [
         "fact_appearances",
         "fact_skeptics",
-        "fact_transformation",
-        "fact_physical_nature"
-      ]
-    },
-    {
-      "tourId": "tour_stress_test",
-      "title": "3. The Skeptical Stress Test",
-      "description": "Watching the leading naturalistic theories fail the systems check.",
-      "steps": [
-        "obj_stolen",
-        "ref_stolen_cowardice",
+        "fact_physical_nature",
         "obj_hallucination",
         "ref_hallucination",
-        "obj_legend",
-        "ref_legend"
+        "obj_dissonance",
+        "ref_dissonance"
       ]
     },
     {
-      "tourId": "tour_ockham",
-      "title": "4. The Grand Finale",
-      "description": "Synthesizing the evidence into a definitive, cumulative case.",
+      "tourId": "tour_3_vetoes",
+      "title": "3. The Systemic Veto",
+      "description": "See the horizontal layout's true power: How one timeline mathematically destroys another.",
       "steps": [
+        "fact_empty_tomb",
+        "fact_appearances",
+        "obj_hallucination",
+        "obj_stolen"
+      ]
+    },
+    {
+      "tourId": "tour_4_ockham",
+      "title": "4. The Grand Convergence",
+      "description": "Deploying Ockham's Razor to synthesize the web of probability into a definitive verdict.",
+      "steps": [
+        "fact_hostile_agreement",
+        "bias_naturalism",
+        "obj_legend",
+        "obj_copycat",
         "obj_conflated",
         "ref_conflated",
-        "core_cumulative_case",
-        "core_resurrection"
+        "core_cumulative_case"
       ]
     }
   ],
