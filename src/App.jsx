@@ -8,6 +8,7 @@ import {
 import { Home, ChevronRight, Info, Map, Play, ArrowRight, ArrowLeft, XCircle, Eye, EyeOff } from 'lucide-react';
 
 import { CustomNode } from './components/CustomNode';
+import { CausalEdge } from './components/CausalEdge';
 import { Drawer } from './components/Drawer';
 import { AboutModal } from './components/AboutModal';
 import apologeticsData from './data/apologetics.json';
@@ -16,10 +17,13 @@ const nodeTypes = {
   custom: CustomNode,
 };
 
+const edgeTypes = {
+  causal: CausalEdge,
+};
+
 export default function App() {
-  // Navigation State
-  // 'macro' | 'grp_worldview' | 'grp_history' | 'grp_objections' | 'grp_refutations'
-  const [currentView, setCurrentView] = useState('macro');
+  // Which hub is currently expanded (null = overview, string = hub id)
+  const [expandedHubId, setExpandedHubId] = useState(null);
   const [selectedNodeData, setSelectedNodeData] = useState(null);
   const [rfInstance, setRfInstance] = useState(null);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
@@ -30,88 +34,190 @@ export default function App() {
   const [tourStepIndex, setTourStepIndex] = useState(0);
   const [isToursMenuOpen, setIsToursMenuOpen] = useState(false);
 
-  // Compute Active Nodes and Edges based on current view
-  const { viewNodes, viewEdges } = useMemo(() => {
-    let activeNodes = [];
-    let activeEdges = [];
+  // The hub IDs
+  const hubIds = ['grp_worldview_cross', 'grp_tomb', 'grp_appearances', 'grp_mythicism', 'grp_morality', 'grp_evil'];
 
-    if (currentView === 'macro') {
-      // 1. Get Macro Nodes (The 4 Subsystems + The Core Resurrection)
-      activeNodes = apologeticsData.nodes.filter(n => n.data.isMacro || n.id === 'core_resurrection');
-      // 2. Get Macro Edges
-      activeEdges = apologeticsData.macroEdges;
-    } else {
-      // 1. Get Micro Nodes for the specific subsystem
-      activeNodes = apologeticsData.nodes.filter(n => n.parentId === currentView);
-      const activeNodeIds = new Set(activeNodes.map(n => n.id));
-      
-      // 2. Get Micro Edges that connect these specific active nodes
-      activeEdges = apologeticsData.edges.filter(e => activeNodeIds.has(e.source) && activeNodeIds.has(e.target));
+  // Hub positions (hexagonal layout around center)
+  const hubPositions = {
+    'core_resurrection': { x: 0, y: 0 },
+    'grp_morality': { x: 0, y: -450 },
+    'grp_worldview_cross': { x: -480, y: -240 },
+    'grp_tomb': { x: 480, y: -240 },
+    'grp_appearances': { x: -480, y: 240 },
+    'grp_mythicism': { x: 480, y: 240 },
+    'grp_evil': { x: 0, y: 450 },
+  };
+
+  // Compute visible nodes and edges
+  const { viewNodes, viewEdges } = useMemo(() => {
+    const visibleIds = new Set(['core_resurrection', ...hubIds]);
+
+    if (expandedHubId) {
+      apologeticsData.nodes.forEach(n => {
+        if (n.parentId === expandedHubId) visibleIds.add(n.id);
+      });
+      if (expandedHubId === 'grp_mythicism') {
+        visibleIds.add('obj_conflated');
+        visibleIds.add('ref_conflated');
+      }
     }
 
-    // Format them for React Flow
-    const formattedNodes = activeNodes.map(n => ({
-      ...n,
-      type: 'custom', // All nodes are now uniformly styled custom cards
-      // Remove parentId so React Flow treats them as independent top-level nodes on this canvas
-      parentId: undefined, 
-    }));
+    // Determine active edges first so we can use them for layout
+    const activeEdges = apologeticsData.edges
+      .filter(e => visibleIds.has(e.source) && visibleIds.has(e.target))
+      .map(e => ({
+        ...e,
+        type: 'causal',
+        animated: false,
+        data: { ...e.data, active: true }
+      }));
 
-    return { viewNodes: formattedNodes, viewEdges: activeEdges };
-  }, [currentView]);
+    // Calculate layout tree from expanded hub using BFS
+    const nodeLayout = {};
+    if (expandedHubId) {
+      const parentPos = hubPositions[expandedHubId];
+      const baseAngle = Math.atan2(parentPos.y, parentPos.x);
+
+      const adj = {};
+      activeEdges.forEach(e => {
+        if (!adj[e.source]) adj[e.source] = [];
+        adj[e.source].push(e.target);
+      });
+
+      const nodeDepth = { [expandedHubId]: 0 };
+      const treeChildren = {};
+      const queue = [expandedHubId];
+
+      while (queue.length > 0) {
+        const curr = queue.shift();
+        if (adj[curr]) {
+          adj[curr].forEach(next => {
+            if (nodeDepth[next] === undefined) {
+              nodeDepth[next] = nodeDepth[curr] + 1;
+              if (!treeChildren[curr]) treeChildren[curr] = [];
+              treeChildren[curr].push(next);
+              queue.push(next);
+            }
+          });
+        }
+      }
+
+      // Recursively assign pie-slice angles to children
+      const spread = Math.PI * 0.85; // Max fan distance
+      const assignAngles = (nodeId, angleStart, angleEnd) => {
+        nodeLayout[nodeId] = {
+          depth: nodeDepth[nodeId],
+          angle: (angleStart + angleEnd) / 2
+        };
+        const children = treeChildren[nodeId] || [];
+        if (children.length > 0) {
+          const step = (angleEnd - angleStart) / children.length;
+          children.forEach((childId, i) => {
+            assignAngles(childId, angleStart + (i * step), angleStart + ((i + 1) * step));
+          });
+        }
+      };
+
+      assignAngles(expandedHubId, baseAngle - spread / 2, baseAngle + spread / 2);
+
+      // Fallback for unconnected items
+      apologeticsData.nodes.forEach(n => {
+        if (visibleIds.has(n.id) && !hubPositions[n.id] && !nodeLayout[n.id]) {
+          nodeLayout[n.id] = { depth: 1, angle: baseAngle };
+        }
+      });
+    }
+
+    const activeNodes = apologeticsData.nodes
+      .filter(n => visibleIds.has(n.id))
+      .map(n => {
+        let pos;
+
+        if (hubPositions[n.id]) {
+          pos = hubPositions[n.id];
+        } else if (expandedHubId && nodeLayout[n.id]) {
+          const parentPos = hubPositions[expandedHubId];
+          const layout = nodeLayout[n.id];
+          
+          // Outer radius expansion by depth
+          const depthRadius = 260; 
+          const radius = 260 + Math.max(0, layout.depth - 1) * depthRadius;
+
+          pos = {
+            x: parentPos.x + Math.cos(layout.angle) * radius,
+            y: parentPos.y + Math.sin(layout.angle) * radius,
+          };
+
+          // Hardcoded layout logic offset for custom orphan nodes
+          if (n.id === 'obj_conflated') { pos.x += 100; pos.y += 150; }
+          if (n.id === 'ref_conflated') { pos.x += 100; pos.y += 300; }
+        } else {
+          pos = { x: 0, y: 0 };
+        }
+
+        return {
+          ...n,
+          position: pos,
+          parentId: undefined,
+          type: 'custom',
+          data: { ...n.data, dimmed: false }
+        };
+      });
+
+    return { viewNodes: activeNodes, viewEdges: activeEdges };
+  }, [expandedHubId]);
 
   const [nodes, setNodes] = useState(viewNodes);
   const [edges, setEdges] = useState(viewEdges);
 
-  // Whenever the view changes, update the graph state and trigger a zoom
+  // Sync view state to React Flow
   React.useEffect(() => {
     setNodes(viewNodes);
     setEdges(viewEdges);
-    // Only auto-fit view if we are NOT in an active tour (tours handle their own zooming)
     if (rfInstance && !activeTour) {
-      setTimeout(() => rfInstance.fitView({ padding: 0.3, duration: 800 }), 50);
+      if (expandedHubId) {
+        // Zoom to fit just the hub + its children
+        const clusterIds = [expandedHubId, 'core_resurrection'];
+        apologeticsData.nodes.forEach(n => {
+          if (n.parentId === expandedHubId) clusterIds.push(n.id);
+        });
+        setTimeout(() => rfInstance.fitView({ 
+          nodes: clusterIds.map(id => ({ id })), 
+          padding: 0.3, 
+          duration: 600 
+        }), 50);
+      } else {
+        setTimeout(() => rfInstance.fitView({ padding: 0.4, duration: 600 }), 50);
+      }
     }
-  }, [viewNodes, viewEdges, rfInstance, activeTour]);
+  }, [viewNodes, viewEdges, rfInstance, activeTour, expandedHubId]);
 
-  // Handle Tour Navigation Auto-Focus
+  // Tour auto-focus
   React.useEffect(() => {
     if (activeTour && rfInstance) {
-      // Small pause to allow view to settle before animating
       setTimeout(() => {
         const currentStepId = activeTour.steps[tourStepIndex];
         const targetNode = apologeticsData.nodes.find(n => n.id === currentStepId);
         
         if (targetNode) {
-          // 1. Determine correct view (macro or specific subsystem)
-          const requiredView = targetNode.parentId || 'macro';
-          
-          // 2. Set view if not already there
-          if (currentView !== requiredView) {
-            setCurrentView(requiredView);
-            // Wait for next render cycle for the actual node to appear in the DOM
-             setTimeout(() => {
-                focusNode(currentStepId, targetNode);
-             }, 300);
+          const requiredHub = targetNode.parentId || null;
+          if (expandedHubId !== requiredHub) {
+            setExpandedHubId(requiredHub);
+            setTimeout(() => focusNode(currentStepId, targetNode), 400);
           } else {
-             focusNode(currentStepId, targetNode);
+            focusNode(currentStepId, targetNode);
           }
         }
       }, 100);
     }
-  }, [activeTour, tourStepIndex, rfInstance]); // Don't include currentView in dep array to prevent infinite loops
+  }, [activeTour, tourStepIndex, rfInstance]);
 
   const focusNode = (nodeId, targetNode) => {
-    setSelectedNodeData(targetNode.data); // Open side drawer
-
-    // Find the node in the current React Flow instance to get its rendered position
+    setSelectedNodeData(targetNode.data);
     const rfNode = rfInstance.getNode(nodeId);
     if (rfNode) {
-      // Add dynamic width/height defaults based on if it's macro or micro
       const nWidth = rfNode.measured?.width || 250;
       const nHeight = rfNode.measured?.height || 150;
-      
-      // Offset the X center to the right (+250) so the node appears further left on the screen,
-      // preventing the right-side Drawer from covering it up.
       rfInstance.setCenter(
         rfNode.position.x + (nWidth / 2) + 250, 
         rfNode.position.y + (nHeight / 2), 
@@ -130,14 +236,21 @@ export default function App() {
     []
   );
 
-  // Interactions
+  // Click handler — the heart of the concentric ring interaction
+  const hubIds_set = new Set(['grp_worldview_cross', 'grp_tomb', 'grp_appearances', 'grp_mythicism', 'grp_morality', 'grp_evil']);
+  
   const onNodeClick = React.useCallback((event, node) => {
-    setSelectedNodeData(node.data);
-
-    // If a user clicks a Macro Node, Drill-Down into that subsystem!
-    if (node.data.isMacro) {
-      setCurrentView(node.id);
-      setSelectedNodeData(null); // Close drawer during transition
+    if (node.id === 'core_resurrection') {
+      // Click core → collapse to overview
+      setExpandedHubId(null);
+      setSelectedNodeData(null);
+    } else if (hubIds_set.has(node.id)) {
+      // Click hub → expand/collapse its children
+      setExpandedHubId(prev => prev === node.id ? null : node.id);
+      setSelectedNodeData(null);
+    } else {
+      // Click child → open drawer
+      setSelectedNodeData(node.data);
     }
   }, []);
 
@@ -163,21 +276,21 @@ export default function App() {
           <div className="pointer-events-auto flex items-center gap-2 bg-card/80 backdrop-blur border border-border px-4 py-2 rounded-lg shadow-sm hidden md:flex">
           <button 
             onClick={() => {
-              setCurrentView('macro');
+              setExpandedHubId(null);
               setSelectedNodeData(null);
-              setActiveTour(null); // Cancel tour on manual macro return
+              setActiveTour(null);
             }}
-            className={`flex items-center gap-2 font-medium transition-colors ${currentView === 'macro' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
+            className={`flex items-center gap-2 font-medium transition-colors ${!expandedHubId ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}
           >
             <Home className="w-4 h-4" />
-            Macro System
+            Overview
           </button>
           
-          {currentView !== 'macro' && (
+          {expandedHubId && (
             <>
               <ChevronRight className="w-4 h-4 text-muted-foreground" />
               <span className="font-semibold text-foreground">
-                {apologeticsData.nodes.find(n => n.id === currentView)?.data.label.replace('Subsystem: ', '')}
+                {apologeticsData.nodes.find(n => n.id === expandedHubId)?.data.label}
               </span>
             </>
           )}
@@ -260,19 +373,11 @@ export default function App() {
           onPaneClick={onPaneClick}
           onInit={setRfInstance}
           nodeTypes={nodeTypes}
+          edgeTypes={edgeTypes}
           fitView
-          fitViewOptions={{ padding: 0.3 }}
+          fitViewOptions={{ padding: 0.4 }}
           proOptions={{ hideAttribution: true }}
           className="bg-background/50"
-          defaultEdgeOptions={{
-             type: 'smoothstep',
-             animated: true,
-             style: { strokeWidth: 2 },
-             labelBgStyle: { fill: '#1f2937', color: '#fff', fillOpacity: 0.9 },
-             labelBgPadding: [8, 4],
-             labelBgBorderRadius: 12,
-             labelStyle: { fill: '#f3f4f6', fontWeight: 600, fontSize: 12 }
-          }}
         >
           <Background color="var(--border)" gap={24} size={2} className="opacity-20" />
         </ReactFlow>

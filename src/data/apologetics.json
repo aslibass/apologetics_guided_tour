@@ -45,53 +45,6 @@
       ]
     }
   ],
-  "macroEdges": [
-    {
-      "id": "m1",
-      "source": "grp_worldview_cross",
-      "target": "core_resurrection",
-      "label": "The Historical Baseline",
-      "animated": true,
-      "type": "smoothstep",
-      "style": {
-        "stroke": "#10b981",
-        "strokeWidth": 2
-      }
-    },
-    {
-      "id": "m2",
-      "source": "grp_tomb",
-      "target": "core_resurrection",
-      "label": "The Physical Evidence",
-      "animated": true,
-      "type": "smoothstep",
-      "style": {
-        "strokeWidth": 2
-      }
-    },
-    {
-      "id": "m3",
-      "source": "grp_appearances",
-      "target": "core_resurrection",
-      "label": "The Human Experience",
-      "animated": true,
-      "type": "smoothstep",
-      "style": {
-        "strokeWidth": 2
-      }
-    },
-    {
-      "id": "m4",
-      "source": "grp_mythicism",
-      "target": "core_resurrection",
-      "label": "The Timeline Factor",
-      "animated": true,
-      "type": "smoothstep",
-      "style": {
-        "strokeWidth": 2
-      }
-    }
-  ],
   "nodes": [
     {
       "id": "core_resurrection",
@@ -100,28 +53,30 @@
         "y": 0
       },
       "data": {
-        "label": "The Core Question: Did Jesus Rise?",
+        "label": "Did Jesus Rise\nFrom the Dead?",
         "category": "core",
-        "summary": "The central focal point of Christian faith and history.",
+        "isHub": true,
+        "summary": "The central question of Christianity — and of history.",
         "publicSummary": [
           "The bodily resurrection of Jesus is the foundational claim of Christianity.",
           "It invites us to explore an extraordinary explanation for an extraordinary set of facts."
         ],
         "presenterNotes": "Emphasize that this is an invitation to investigate. Resurrection strictly meant a bodily return to life.",
         "skepticPushback": "Extraordinary claims require extraordinary evidence (the Sagan Standard). A supernatural resurrection is inherently the least probable event in history.",
-        "historicalDefense": "We don't need 'extraordinary' evidence; we need sufficient historical evidence. If God exists, a resurrection is not a violation of nature, but a divine intervention. We use Inference to the Best Explanation."
+        "historicalDefense": "We don't need 'extraordinary' evidence; we need sufficient historical evidence. If God exists, a resurrection is not a violation of nature, but a divine intervention."
       }
     },
     {
       "id": "grp_worldview_cross",
       "position": {
-        "x": -350,
-        "y": -200
+        "x": -1500,
+        "y": -800
       },
+      "hidden": false,
       "data": {
-        "label": "1. Foundation: Worldview & The Cross",
-        "category": "evidence",
-        "isMacro": true,
+        "label": "1. Worldview & The Cross",
+        "category": "hub",
+        "isHub": true,
         "summary": "Establishing the plausibility of God and the baseline of Jesus's death.",
         "publicSummary": [
           "Are miracles possible?",
@@ -171,6 +126,23 @@
         "presenterNotes": "This softens the perceived conflict between faith and science.",
         "skepticPushback": "Evolution naturally selects for survival, which inherently requires creatures to accurately perceive reality.",
         "historicalDefense": "Evolution selects for utility and survival, not objective 'truth' (Plantinga's Evolutionary Argument Against Naturalism). A rational, truth-seeking mind is best explained by a rational Creator."
+      }
+    },
+    {
+      "id": "bridge_revelation",
+      "parentId": "grp_worldview_cross",
+      "position": { "x": 350, "y": 200 },
+      "data": {
+        "label": "Bridging to History: Divine Disclosure",
+        "category": "evidence",
+        "summary": "If a Creator exists, would He remain silent?",
+        "publicSummary": [
+          "Arguments for God only get us to a 'Higher Power.'",
+          "If God is personal and good, it is probable He would communicate within history."
+        ],
+        "presenterNotes": "Crucial bridge node: Move from 'Abstract God' to 'Speaking God.' This justifies looking into the Bible.",
+        "skepticPushback": "An infinite God would be far beyond human words. Any 'revelation' would just be limited human projection.",
+        "historicalDefense": "While limited, a Creator is the only ground for objective communication. If He designed our minds, He can undoubtedly speak to them."
       }
     },
     {
@@ -274,13 +246,14 @@
     {
       "id": "grp_tomb",
       "position": {
-        "x": 350,
-        "y": -200
+        "x": 1500,
+        "y": -800
       },
+      "hidden": false,
       "data": {
-        "label": "2. Investigation: The Empty Tomb",
-        "category": "evidence",
-        "isMacro": true,
+        "label": "2. The Empty Tomb",
+        "category": "hub",
+        "isHub": true,
         "summary": "Looking at the physical evidence in Jerusalem.",
         "publicSummary": [
           "Is it true the tomb was empty?",
@@ -393,13 +366,14 @@
     {
       "id": "grp_appearances",
       "position": {
-        "x": -350,
-        "y": 200
+        "x": -1500,
+        "y": 800
       },
+      "hidden": false,
       "data": {
-        "label": "3. The Human Factor: Witnesses & Psychology",
-        "category": "evidence",
-        "isMacro": true,
+        "label": "3. The Eyewitnesses",
+        "category": "hub",
+        "isHub": true,
         "summary": "Exploring the psychological transformation of eyewitnesses.",
         "publicSummary": [
           "Why did terrified fishermen suddenly become bold martyrs?",
@@ -550,13 +524,14 @@
     {
       "id": "grp_mythicism",
       "position": {
-        "x": 350,
-        "y": 200
+        "x": 1500,
+        "y": 800
       },
+      "hidden": false,
       "data": {
-        "label": "4. The Timeline: History vs. Myth",
-        "category": "evidence",
-        "isMacro": true,
+        "label": "4. History vs. Myth",
+        "category": "hub",
+        "isHub": true,
         "summary": "Comparing the timeline to ancient myths.",
         "publicSummary": [
           "Was the Resurrection story a later legendary addition?",
@@ -646,10 +621,149 @@
       }
     },
     {
-      "id": "obj_conflated",
+      "id": "ref_kalam",
+      "parentId": "grp_worldview_cross",
       "position": {
-        "x": 0,
-        "y": 650
+        "x": -310,
+        "y": 324
+      },
+      "data": {
+        "label": "The Kalam Cosmological Argument",
+        "category": "evidence",
+        "summary": "Whatever begins to exist has a cause. The universe began. Therefore, the universe has a cause.",
+        "publicSummary": [
+          "Modern cosmology confirms the universe had a beginning (the Big Bang).",
+          "An infinite regress of causes is logically impossible, so there must be a First Cause."
+        ],
+        "presenterNotes": "William Lane Craig's signature argument. Keep it concise: the two premises lead to a spaceless, timeless, immaterial cause.",
+        "skepticPushback": "Quantum mechanics shows particles can pop into existence from nothing. The universe could be a quantum fluctuation.",
+        "historicalDefense": "Quantum vacuum is not 'nothing'—it is a rich field governed by physical laws. The question remains: where did the quantum field and its laws come from?"
+      }
+    },
+    {
+      "id": "fact_joseph",
+      "parentId": "grp_tomb",
+      "position": {
+        "x": 250,
+        "y": 360
+      },
+      "data": {
+        "label": "Joseph of Arimathea's Burial",
+        "category": "evidence",
+        "summary": "A member of the Jewish council that condemned Jesus buried him in his own tomb.",
+        "publicSummary": [
+          "Joseph was a member of the Sanhedrin—the very court that condemned Jesus.",
+          "Early Christians would never invent a sympathetic council member; this passes the Criterion of Embarrassment."
+        ],
+        "presenterNotes": "Why would the early church invent a fictional hero from the exact group that killed Jesus?",
+        "skepticPushback": "Joseph could be a literary creation meant to fulfill the Isaiah 53 prophecy about being buried with the rich.",
+        "historicalDefense": "Naming a specific, identifiable council member in a document circulating in Jerusalem is suicidal if he's fictional. Anyone could verify the claim."
+      }
+    },
+    {
+      "id": "fact_guard",
+      "parentId": "grp_tomb",
+      "position": {
+        "x": -70,
+        "y": 90
+      },
+      "data": {
+        "label": "The Guard & the Opponents' Admission",
+        "category": "evidence",
+        "summary": "The Jewish authorities' own counter-story proves they admitted the tomb was empty.",
+        "publicSummary": [
+          "Matthew records the authorities saying: 'His disciples came and stole him while we slept.'",
+          "This is an enemy attestation—the opponents never denied the tomb was empty; they only tried to explain it away."
+        ],
+        "presenterNotes": "Even if you doubt the guard story, the counter-argument proves the empty tomb was a known fact that opponents had to address.",
+        "skepticPushback": "Matthew is the only Gospel that mentions a guard. It's likely a later apologetic invention to counter the theft accusation.",
+        "historicalDefense": "Even granting that, the counter-argument ('the disciples stole it') predates Matthew and is evidence that the empty tomb was an agreed-upon fact requiring explanation from both sides."
+      }
+    },
+    {
+      "id": "obj_copycat",
+      "parentId": "grp_mythicism",
+      "position": {
+        "x": -70,
+        "y": 360
+      },
+      "data": {
+        "label": "The Pagan Copycat Theory",
+        "category": "objection",
+        "summary": "Christianity borrowed the 'dying and rising god' idea from pagan myths like Osiris, Mithras, or Dionysus.",
+        "publicSummary": [
+          "Several ancient pagan gods underwent death-and-return narratives.",
+          "Perhaps the early Christians simply adapted this common mythological template."
+        ],
+        "presenterNotes": "This is one of the most common online objections. Handle it carefully—many people find it compelling at first.",
+        "skepticPushback": "The parallels are striking: Osiris was killed and came back, Mithras was born in a cave, Dionysus turned water into wine. Christianity is just a Jewish remix.",
+        "historicalDefense": "Osiris didn't resurrect—he became Lord of the Dead (the underworld). Mithras was born from a rock, not a virgin. The parallels are superficial, and 1st-century Jews despised pagan myths."
+      }
+    },
+    {
+      "id": "ref_copycat",
+      "parentId": "grp_mythicism",
+      "position": {
+        "x": -70,
+        "y": 594
+      },
+      "data": {
+        "label": "The Myths Don't Actually Match",
+        "category": "refutation",
+        "summary": "The supposed parallels dissolve under scrutiny. The Resurrection is rooted in Jewish categories, not pagan ones.",
+        "publicSummary": [
+          "No pagan myth describes a real, historical person bodily rising in the middle of history.",
+          "Pagan 'dying gods' represent seasonal agricultural cycles (planting/harvesting), not historical events."
+        ],
+        "presenterNotes": "Key distinction: myth = cyclical nature symbol. Resurrection = a one-time historical event in Jerusalem under Pontius Pilate.",
+        "skepticPushback": "Even if the myths aren't exact parallels, the cultural atmosphere of dying-and-rising stories could have unconsciously influenced the early Christians.",
+        "historicalDefense": "The earliest Christians were devout Jews who explicitly rejected pagan practices (Acts 15, Galatians). They had no motivation to borrow from traditions they considered spiritually dangerous."
+      }
+    },
+    {
+      "id": "fact_nonchristian",
+      "parentId": "grp_mythicism",
+      "position": {
+        "x": 570,
+        "y": 360
+      },
+      "data": {
+        "label": "Non-Christian Sources Confirm It",
+        "category": "evidence",
+        "summary": "Hostile and neutral Roman and Jewish historians corroborate key facts about Jesus.",
+        "publicSummary": [
+          "Tacitus (Roman historian, 116 AD): confirms Jesus was executed under Pontius Pilate.",
+          "Josephus (Jewish historian, 93 AD): confirms Jesus was a teacher who was crucified and whose followers claimed he appeared alive.",
+          "Pliny the Younger (112 AD): confirms Christians worshipped Christ 'as a god' and sang hymns to him."
+        ],
+        "presenterNotes": "These are hostile witnesses with no motivation to help Christianity. Their corroboration is devastating.",
+        "skepticPushback": "Josephus's passage (the Testimonium Flavianum) was tampered with by later Christian scribes.",
+        "historicalDefense": "Scholars have reconstructed the original text by removing obvious interpolations. The core remains: a historical Jesus, a crucifixion under Pilate, and followers who claimed appearances."
+      }
+    },
+    {
+      "id": "fact_hostile_agreement",
+      "parentId": "grp_mythicism",
+      "position": { "x": 410, "y": 450 },
+      "data": {
+        "label": "Consensus: The Historical Bedrock",
+        "category": "evidence",
+        "summary": "Even hostile scholars admit the baseline facts of the case.",
+        "publicSummary": [
+          "Critics like Bart Ehrman and Gerd Lüdemann agree: The tomb was empty, and the disciples saw *something*.",
+          "This kills the 'Legend' theory before it even starts—the claims are too early."
+        ],
+        "presenterNotes": "Use this node to build authority. The Resurrection isn't just a church claim; its symptoms are a puzzle for secular historians too.",
+        "skepticPushback": "Agreement on the facts (like the disciples' visions) doesn't imply agreement on the supernatural cause.",
+        "historicalDefense": "Correct, but if we agree on the facts, we must explain them. If legend formation is ruled out by the early date, only a miracle or a naturalistic fluke remains."
+      }
+    },
+    {
+      "id": "obj_conflated",
+      "parentId": "grp_mythicism",
+      "position": {
+        "x": 250,
+        "y": 828
       },
       "data": {
         "label": "The 'Kitchen Sink' Theory",
@@ -666,9 +780,10 @@
     },
     {
       "id": "ref_conflated",
+      "parentId": "grp_mythicism",
       "position": {
-        "x": 0,
-        "y": 800
+        "x": 250,
+        "y": 1062
       },
       "data": {
         "label": "Ockham's Razor",
@@ -682,267 +797,371 @@
         "skepticPushback": "Ockham's Razor says 'do not multiply entities beyond necessity.' Introducing a supernatural God who resurrects corpses is the ultimate multiplication of entities.",
         "historicalDefense": "If we established the existence of a Creator at the 'Worldview' stage, then God is not a new entity being invented to solve the problem; He is the existing contextual foundation that makes the Resurrection the most elegant explanation."
       }
+    },
+    {
+      "id": "grp_morality",
+      "position": {
+        "x": 0,
+        "y": -800
+      },
+      "data": {
+        "label": "5. Morality & Meaning",
+        "category": "hub",
+        "isHub": true,
+        "summary": "Does life have objective meaning? Is right and wrong real, or just a feeling?",
+        "publicSummary": [
+          "If God doesn't exist, is morality just a social invention?",
+          "Why do humans universally feel that some things are truly wrong?"
+        ],
+        "presenterNotes": "This hub connects the Resurrection to daily life. If Jesus rose, then the Author of morality is real and active.",
+        "skepticPushback": "Morality is a product of evolution. We cooperate because it helps our genes survive, not because of a divine lawgiver.",
+        "historicalDefense": "Evolution can explain why we have moral feelings, but not why those feelings correspond to objective moral facts. The feeling that torturing children is wrong isn't just 'useful'—it reflects a real moral truth."
+      }
+    },
+    {
+      "id": "fact_moral_argument",
+      "parentId": "grp_morality",
+      "position": {
+        "x": 250,
+        "y": 90
+      },
+      "data": {
+        "label": "The Moral Argument (C.S. Lewis)",
+        "category": "evidence",
+        "summary": "The universal sense of right and wrong points to a Moral Lawgiver.",
+        "publicSummary": [
+          "Every culture shares a core moral framework (murder is wrong, fairness matters).",
+          "C.S. Lewis argued this 'Moral Law' can't come from nature; it must come from a Mind behind nature."
+        ],
+        "presenterNotes": "Lewis's journey from atheism to faith started here. 'Mere Christianity' opens with this argument.",
+        "skepticPushback": "Different cultures have wildly different moral codes. Some practiced human sacrifice, others honor killing. There's no universal moral law.",
+        "historicalDefense": "The differences are in application, not principle. Every culture agrees murder is wrong—they just disagree on who counts as a 'person.' The underlying principle is universal."
+      }
+    },
+    {
+      "id": "obj_morality_evolution",
+      "parentId": "grp_morality",
+      "position": {
+        "x": -70,
+        "y": 360
+      },
+      "data": {
+        "label": "Morality Is Just Evolution",
+        "category": "objection",
+        "summary": "Our moral instincts are survival mechanisms programmed by natural selection.",
+        "publicSummary": [
+          "Altruism, fairness, and empathy evolved because they helped our ancestors survive in groups.",
+          "There's no need for a God to explain why we feel guilt or compassion."
+        ],
+        "presenterNotes": "This is the standard naturalistic explanation. Acknowledge it's partially true—evolution shapes our feelings.",
+        "skepticPushback": "Mirror neurons and oxytocin fully explain empathy. Morality is neurochemistry, not metaphysics.",
+        "historicalDefense": "Evolution explains the mechanism (how we feel morality) but not the ontology (why morality is real). If morality is just chemicals, then saying 'the Holocaust was wrong' is no more objectively true than 'chocolate is tasty.'"
+      }
+    },
+    {
+      "id": "ref_grounding",
+      "parentId": "grp_morality",
+      "position": {
+        "x": -70,
+        "y": 594
+      },
+      "data": {
+        "label": "The Grounding Problem",
+        "category": "refutation",
+        "summary": "Without God, morality has no foundation—it collapses into personal preference.",
+        "publicSummary": [
+          "Dostoevsky: 'Without God, everything is permitted.'",
+          "If humans are just rearranged atoms, saying 'murder is wrong' is like saying 'rocks shouldn't fall.'"
+        ],
+        "presenterNotes": "Push gently: most atheists live as if morality is real. That's a clue they're borrowing from a worldview they've rejected.",
+        "skepticPushback": "We don't need God for morality. Secular humanism provides a perfectly good foundation based on human flourishing.",
+        "historicalDefense": "But 'human flourishing' is itself an arbitrary standard without a transcendent grounding. Why should I care about your flourishing if it conflicts with mine? Only a transcendent Moral Lawgiver makes morality binding."
+      }
+    },
+    {
+      "id": "fact_dignity",
+      "parentId": "grp_morality",
+      "position": {
+        "x": 570,
+        "y": 360
+      },
+      "data": {
+        "label": "Human Dignity & the Resurrection",
+        "category": "evidence",
+        "summary": "The Resurrection proves that human beings have eternal, intrinsic worth.",
+        "publicSummary": [
+          "If God raised a human body from the dead, then human life matters infinitely.",
+          "This is the foundation of human rights, equality, and the abolition of slavery."
+        ],
+        "presenterNotes": "Connect the abstract argument to real life. The Resurrection isn't just historical trivia—it's the basis for why every human matters.",
+        "skepticPushback": "Human rights exist without the Resurrection. The Enlightenment, not Christianity, gave us rights and democracy.",
+        "historicalDefense": "The Enlightenment borrowed its concept of 'inalienable rights' directly from the Christian idea that every person is made in God's image. Remove the theological basis and you're left with rights-by-convention, which can be revoked."
+      }
+    },
+    {
+      "id": "grp_evil",
+      "position": {
+        "x": 0,
+        "y": 800
+      },
+      "data": {
+        "label": "6. Evil & Suffering",
+        "category": "hub",
+        "isHub": true,
+        "summary": "If God is good and powerful, why is there so much suffering?",
+        "publicSummary": [
+          "This is the most emotionally powerful objection to God's existence.",
+          "The Resurrection provides a unique, personal answer."
+        ],
+        "presenterNotes": "Handle with extreme care. Many people carry real trauma. This is pastoral, not just intellectual.",
+        "skepticPushback": "A child dying of cancer proves either God doesn't exist, doesn't care, or isn't powerful enough to stop it. Pick one.",
+        "historicalDefense": "The Resurrection doesn't explain WHY evil exists—it demonstrates that God enters INTO the suffering and defeats it from within. The Cross is God's answer, not a philosophical lecture."
+      }
+    },
+    {
+      "id": "obj_problem_evil",
+      "parentId": "grp_evil",
+      "position": {
+        "x": 250,
+        "y": 90
+      },
+      "data": {
+        "label": "The Problem of Evil",
+        "category": "objection",
+        "summary": "An all-powerful, all-loving God cannot coexist with suffering.",
+        "publicSummary": [
+          "Epicurus: 'If God is willing to prevent evil but not able, he is not omnipotent. If able but not willing, he is malevolent.'",
+          "This is the oldest and most powerful objection to theism."
+        ],
+        "presenterNotes": "Acknowledge the emotional weight. Don't rush to answers.",
+        "skepticPushback": "Natural disasters, childhood cancer, and genocide are not caused by human free will. A loving God could have created a world without natural evil.",
+        "historicalDefense": "Philosophers have shown the logical problem of evil fails: there is no logical contradiction between 'God exists' and 'evil exists.' God may have morally sufficient reasons for permitting evil that we cannot fully comprehend."
+      }
+    },
+    {
+      "id": "ref_free_will",
+      "parentId": "grp_evil",
+      "position": {
+        "x": -70,
+        "y": 360
+      },
+      "data": {
+        "label": "The Free Will Defense",
+        "category": "refutation",
+        "summary": "A world with genuine love requires the freedom to choose—including the freedom to cause harm.",
+        "publicSummary": [
+          "Alvin Plantinga demonstrated that God and evil are logically compatible.",
+          "God cannot create beings with free will AND guarantee they never misuse it."
+        ],
+        "presenterNotes": "Even atheist philosopher J.L. Mackie conceded that Plantinga's Free Will Defense succeeds against the logical problem of evil.",
+        "skepticPushback": "Fine, but what about natural evil? Earthquakes and diseases have nothing to do with human free will.",
+        "historicalDefense": "Natural evil may serve soul-building purposes (Irenaeus), or may be the result of living in a universe governed by regular natural laws—which are themselves necessary for free moral agents to make meaningful choices."
+      }
+    },
+    {
+      "id": "ref_cross_answer",
+      "parentId": "grp_evil",
+      "position": {
+        "x": 570,
+        "y": 360
+      },
+      "data": {
+        "label": "The Cross: God Enters Suffering",
+        "category": "refutation",
+        "summary": "Christianity doesn't offer a philosophical lecture—it offers a God who suffered with us.",
+        "publicSummary": [
+          "On the Cross, God himself experienced the worst evil, injustice, and suffering the world could produce.",
+          "The Resurrection is the proof that suffering does not have the final word."
+        ],
+        "presenterNotes": "This is the most powerful pastoral answer. Move from philosophy to person. God is not distant; he entered the darkness.",
+        "skepticPushback": "A weekend of suffering by an immortal being is hardly comparable to a lifetime of human agony.",
+        "historicalDefense": "The Incarnation means God experienced genuine human suffering, abandonment, and death. The Resurrection means he conquered it—not by avoiding it, but by going through it and emerging victorious."
+      }
+    },
+    {
+      "id": "ref_soul_building",
+      "parentId": "grp_evil",
+      "position": {
+        "x": -70,
+        "y": 594
+      },
+      "data": {
+        "label": "The Soul-Building Theodicy",
+        "category": "refutation",
+        "summary": "Suffering can produce character, compassion, and spiritual growth that a pain-free world cannot.",
+        "publicSummary": [
+          "Irenaeus taught that God designed the world as a place of growth, not a finished paradise.",
+          "The most courageous, compassionate people in history were forged through suffering, not comfort."
+        ],
+        "presenterNotes": "Use carefully. Never say suffering is 'good.' Say it can be redeemed and used for growth. The Resurrection is the proof.",
+        "skepticPushback": "Telling a parent that their child's death 'builds character' is monstrous. This theodicy is morally bankrupt.",
+        "historicalDefense": "The soul-building theodicy doesn't claim every individual suffering has a clear purpose. It claims God can redeem suffering—and the Resurrection is the ultimate proof that death itself is not the end."
+      }
+    },
+    {
+      "id": "fact_physical_nature",
+      "parentId": "grp_appearances",
+      "position": {
+        "x": 100,
+        "y": 500
+      },
+      "data": {
+        "label": "Nature: A Physical Body",
+        "category": "evidence",
+        "summary": "The appearances were not shimmering ghosts; they were physical.",
+        "publicSummary": [
+          "He ate fish and honeycomb. He invited them to touch his wounds.",
+          "This is not how 'visions' or 'ghosts' behave in 1st-century literature."
+        ],
+        "presenterNotes": "Crucial for killing the 'vision' theory. If he ate, it wasn't a shadow.",
+        "skepticPushback": "These physical details are later theological additions to combat gnosticism, not early historical facts.",
+        "historicalDefense": "The earliest creeds (1 Cor 15) use 'buried' and 'raised,' words that exclusively imply a physical departure from a grave. The physicality is baked into the concept from day one."
+      }
+    },
+    {
+      "id": "ref_future_restoration",
+      "parentId": "grp_evil",
+      "position": {
+        "x": 250,
+        "y": 750
+      },
+      "data": {
+        "label": "Restoration: The Death of Death",
+        "category": "refutation",
+        "summary": "The Resurrection promise: Evil is defeated, not just explained.",
+        "publicSummary": [
+          "If Jesus rose, then God is 'making all things new.'",
+          "Evil is an intruder that will be physically and finally removed from reality."
+        ],
+        "presenterNotes": "Close the loop on evil. It's not just sympathy; it's a solution. Prototype of New Creation.",
+        "skepticPushback": "Promising a 'future heaven' is just a way to ignore current injustice and make-believe a happy ending.",
+        "historicalDefense": "Actually, the belief in future restoration fueled the greatest social reforms in history. If God is fixing the world, we are called to act as His agents of restoration now."
+      }
+    },
+    {
+      "id": "core_cumulative_case",
+      "position": {
+        "x": 0,
+        "y": 1200
+      },
+      "data": {
+        "label": "The Cumulative Case",
+        "category": "core",
+        "summary": "Synthesizing the Evidence: Beyond Reasonable Doubt.",
+        "publicSummary": [
+          "None of these facts stand alone. Together, they create a 'web' of probability.",
+          "When you combine History, Physics, and Psychology, the Resurrection is the most parsimonious answer."
+        ],
+        "presenterNotes": "Grand Finale. The probability of each being a naturalistic fluke is low; the probability of ALL being flukes is zero.",
+        "skepticPushback": "A single unlikely physical event (Resurrection) is still less probable than a long string of mundane natural events.",
+        "historicalDefense": "This is a misunderstanding of Bayesian probability. If a single cause (God) explains all six hubs, while a naturalistic cause requires six separate miracles of chance, the single cause is the winner."
+      }
+    },
+    {
+      "id": "fact_joseph",
+      "parentId": "grp_tomb",
+      "position": {
+        "x": 300,
+        "y": 200
+      },
+      "data": {
+        "label": "Joseph of Arimathea",
+        "category": "evidence",
+        "summary": "Jesus was buried by a well-known member of the Jewish Sanhedrin.",
+        "publicSummary": [
+          "Christianity started in Jerusalem, where Joseph of Arimathea was a public figure.",
+          "If they invented a fake tomb, they wouldn't use a specific, verifiable tomb owned by a hostile governing body member."
+        ],
+        "presenterNotes": "Passes the criterion of specific historical memory.",
+        "skepticPushback": "Joseph could be a literary invention to fulfill Isaiah 53 (burial with the rich).",
+        "historicalDefense": "Inventing a sympathetic member of the very council that condemned Jesus is highly counterproductive to early Christian polemics. Historicizing a specific, prominent ruling class member would invite immediate falsification from the Sanhedrin."
+      }
+    },
+    {
+      "id": "fact_guard",
+      "parentId": "grp_tomb",
+      "position": {
+        "x": 350,
+        "y": 300
+      },
+      "data": {
+        "label": "The Guard at the Tomb",
+        "category": "evidence",
+        "summary": "Even the earliest Jewish polemics admitted the tomb was empty by claiming the guards fell asleep.",
+        "publicSummary": [
+          "Matthew records that Jewish leaders circulated the story that the disciples stole the body.",
+          "Nobody claims 'thieves stole the body' if the body is still in the tomb. The Jewish controversy itself proves the tomb was empty."
+        ],
+        "presenterNotes": "The enemy's excuse proves our premise.",
+        "skepticPushback": "The guard story in Matthew is an apologetic legend created specifically to answer the 'stolen body' charge.",
+        "historicalDefense": "Even if the guard story is an apologetic device, it reveals that the early, non-Christian Jewish explanation for the Christian claim was 'the body was stolen'. This necessitates an empty tomb as the shared historical premise between Christians and their critics."
+      }
     }
   ],
   "edges": [
-    {
-      "id": "e_ww1",
-      "source": "ref_strobel_creator",
-      "target": "ref_worldview_science",
-      "animated": true,
-      "type": "smoothstep"
-    },
-    {
-      "id": "e_ww2",
-      "source": "ref_worldview_science",
-      "target": "bridge_textual",
-      "animated": true,
-      "type": "smoothstep"
-    },
-    {
-      "id": "e_ww_bridge",
-      "source": "bridge_textual",
-      "target": "context_claims",
-      "animated": true,
-      "type": "smoothstep"
-    },
-    {
-      "id": "e_ww3",
-      "source": "context_claims",
-      "target": "fact_crucifixion",
-      "animated": true,
-      "type": "smoothstep"
-    },
-    {
-      "id": "e_ww_obj1",
-      "source": "obj_swoon",
-      "target": "fact_crucifixion",
-      "animated": true,
-      "label": "Attempts to nullify death",
-      "style": {
-        "stroke": "#ef4444",
-        "strokeWidth": 2,
-        "strokeDasharray": "5,5"
-      }
-    },
-    {
-      "id": "e_ww_ref1",
-      "source": "ref_swoon_medical",
-      "target": "obj_swoon",
-      "animated": true,
-      "label": "Medical science says no",
-      "style": {
-        "stroke": "#10b981",
-        "strokeWidth": 2
-      }
-    },
-    {
-      "id": "e_tomb_obj1",
-      "source": "obj_stolen",
-      "target": "fact_empty_tomb",
-      "animated": true,
-      "label": "Explains away the tomb",
-      "style": {
-        "stroke": "#ef4444",
-        "strokeWidth": 2,
-        "strokeDasharray": "5,5"
-      }
-    },
-    {
-      "id": "e_tomb_ref1",
-      "source": "ref_stolen_cowardice",
-      "target": "obj_stolen",
-      "animated": true,
-      "label": "Martyrdom contradicts this",
-      "style": {
-        "stroke": "#10b981",
-        "strokeWidth": 2
-      }
-    },
-    {
-      "id": "e_tomb_obj2",
-      "source": "obj_wrong_tomb",
-      "target": "fact_empty_tomb",
-      "animated": true,
-      "label": "Attributes to error",
-      "style": {
-        "stroke": "#ef4444",
-        "strokeWidth": 2,
-        "strokeDasharray": "5,5"
-      }
-    },
-    {
-      "id": "e_tomb_ref2",
-      "source": "ref_wrong_tomb",
-      "target": "obj_wrong_tomb",
-      "animated": true,
-      "label": "Romans would have exposed it",
-      "style": {
-        "stroke": "#10b981",
-        "strokeWidth": 2
-      }
-    },
-    {
-      "id": "e_app_1",
-      "source": "fact_appearances",
-      "target": "fact_transformation",
-      "animated": true,
-      "type": "smoothstep",
-      "label": "Transformed Disciples"
-    },
-    {
-      "id": "e_app_2",
-      "source": "fact_appearances",
-      "target": "fact_skeptics",
-      "animated": true,
-      "type": "smoothstep",
-      "label": "Converted Enemies"
-    },
-    {
-      "id": "e_app_obj1",
-      "source": "obj_hallucination",
-      "target": "fact_appearances",
-      "animated": true,
-      "label": "Dismisses as projection",
-      "style": {
-        "stroke": "#ef4444",
-        "strokeWidth": 2,
-        "strokeDasharray": "5,5"
-      }
-    },
-    {
-      "id": "e_app_ref1",
-      "source": "ref_hallucination",
-      "target": "obj_hallucination",
-      "animated": true,
-      "label": "Psychology rejects group visions",
-      "style": {
-        "stroke": "#10b981",
-        "strokeWidth": 2
-      }
-    },
-    {
-      "id": "e_app_obj2",
-      "source": "obj_dissonance",
-      "target": "fact_transformation",
-      "animated": true,
-      "label": "Frames as coping mechanism",
-      "style": {
-        "stroke": "#ef4444",
-        "strokeWidth": 2,
-        "strokeDasharray": "5,5"
-      }
-    },
-    {
-      "id": "e_app_ref2",
-      "source": "ref_dissonance",
-      "target": "obj_dissonance",
-      "animated": true,
-      "label": "Doesn't fit 1st-century beliefs",
-      "style": {
-        "stroke": "#10b981",
-        "strokeWidth": 2
-      }
-    },
-    {
-      "id": "e_app_veto",
-      "source": "fact_empty_tomb",
-      "target": "obj_hallucination",
-      "animated": false,
-      "label": "Physicality Vetoes Mental State",
-      "style": {
-        "stroke": "#3b82f6",
-        "strokeWidth": 2
-      }
-    },
-    {
-      "id": "e_app_veto_stolen",
-      "source": "fact_appearances",
-      "target": "obj_stolen",
-      "animated": false,
-      "label": "Appearances Veto Theft",
-      "style": {
-        "stroke": "#3b82f6",
-        "strokeWidth": 2
-      }
-    },
-    {
-      "id": "e_myth_obj1",
-      "source": "bias_naturalism",
-      "target": "obj_legend",
-      "animated": true,
-      "label": "Forces naturalistic theory",
-      "style": {
-        "stroke": "#ef4444",
-        "strokeWidth": 2,
-        "strokeDasharray": "5,5"
-      }
-    },
-    {
-      "id": "e_myth_ref_creeds",
-      "source": "fact_creeds",
-      "target": "obj_legend",
-      "animated": true,
-      "label": "Too early for myth",
-      "style": {
-        "stroke": "#10b981",
-        "strokeWidth": 2
-      }
-    },
-    {
-      "id": "e_myth_ref1",
-      "source": "ref_legend",
-      "target": "obj_legend",
-      "animated": true,
-      "label": "Not enough time passed",
-      "style": {
-        "stroke": "#10b981",
-        "strokeWidth": 2
-      }
-    },
-    {
-      "id": "e_conflated_1",
-      "source": "obj_hallucination",
-      "target": "obj_conflated",
-      "animated": true,
-      "label": "Combines with",
-      "style": {
-        "stroke": "#ef4444",
-        "strokeDasharray": "5,5"
-      }
-    },
-    {
-      "id": "e_conflated_2",
-      "source": "obj_stolen",
-      "target": "obj_conflated",
-      "animated": true,
-      "label": "Combines with",
-      "style": {
-        "stroke": "#ef4444",
-        "strokeDasharray": "5,5"
-      }
-    },
-    {
-      "id": "e_ockham_refutes",
-      "source": "ref_conflated",
-      "target": "obj_conflated",
-      "animated": true,
-      "label": "Statistically Improbable",
-      "style": {
-        "stroke": "#10b981",
-        "strokeWidth": 2
-      }
-    },
-    {
-      "id": "e_ockham_proves",
-      "source": "ref_conflated",
-      "target": "core_resurrection",
-      "animated": true,
-      "label": "Points to",
-      "style": {
-        "stroke": "#10b981",
-        "strokeWidth": 4
-      }
-    }
+    { "id": "e_core_to_worldview", "source": "core_resurrection", "target": "grp_worldview_cross", "label": "Foundation", "animated": true },
+    { "id": "e_core_to_tomb", "source": "core_resurrection", "target": "grp_tomb", "label": "Evidence", "animated": true },
+    { "id": "e_core_to_app", "source": "core_resurrection", "target": "grp_appearances", "label": "Witnesses", "animated": true },
+    { "id": "e_core_to_myth", "source": "core_resurrection", "target": "grp_mythicism", "label": "History", "animated": true },
+    { "id": "e_core_to_morality", "source": "core_resurrection", "target": "grp_morality", "label": "Meaning", "animated": true },
+    { "id": "e_core_to_evil", "source": "core_resurrection", "target": "grp_evil", "label": "Suffering", "animated": true },
+
+    { "id": "e_app_veto", "source": "fact_empty_tomb", "target": "obj_hallucination", "animated": false, "label": "Physicality Vetoes Mental State", "style": { "stroke": "#3b82f6", "strokeWidth": 2 } },
+    { "id": "e_app_veto_stolen", "source": "fact_appearances", "target": "obj_stolen", "animated": false, "label": "Appearances Veto Theft", "style": { "stroke": "#3b82f6", "strokeWidth": 2 } },
+    { "id": "e_conflated_1", "source": "obj_hallucination", "target": "obj_conflated", "animated": true, "label": "Combines with", "style": { "stroke": "#ef4444", "strokeDasharray": "5,5" } },
+    { "id": "e_conflated_2", "source": "obj_stolen", "target": "obj_conflated", "animated": true, "label": "Combines with", "style": { "stroke": "#ef4444", "strokeDasharray": "5,5" } },
+    { "id": "e_ockham_proves", "source": "ref_conflated", "target": "core_resurrection", "animated": true, "label": "Points to", "style": { "stroke": "#10b981", "strokeWidth": 4 } },
+
+    { "id": "e_hub_ww_entry", "source": "grp_worldview_cross", "target": "ref_kalam", "label": "Does God exist?" },
+    { "id": "e_ww_chain_1", "source": "ref_kalam", "target": "ref_strobel_creator", "label": "Is the universe designed?" },
+    { "id": "e_ww_chain_2", "source": "ref_strobel_creator", "target": "ref_worldview_science", "label": "Then can we trust reason?" },
+    { "id": "e_ww_chain_2_bridge", "source": "ref_worldview_science", "target": "bridge_revelation", "label": "If a Mind exists, would He speak?" },
+    { "id": "e_ww_chain_3", "source": "bridge_revelation", "target": "bridge_textual", "label": "Then can we trust the Bible?" },
+    { "id": "e_ww_chain_4", "source": "bridge_textual", "target": "context_claims", "label": "What did Jesus claim?" },
+    { "id": "e_ww_chain_5", "source": "context_claims", "target": "fact_crucifixion", "label": "Did he really die?" },
+    { "id": "e_ww_chain_obj", "source": "fact_crucifixion", "target": "obj_swoon", "label": "Objection: Swoon Theory" },
+    { "id": "e_ww_chain_ref", "source": "obj_swoon", "target": "ref_swoon_medical", "label": "Answer: Medical consensus" },
+
+    { "id": "e_hub_tomb_entry", "source": "grp_tomb", "target": "fact_empty_tomb", "label": "Was the tomb empty?" },
+    { "id": "e_tomb_chain_1", "source": "fact_empty_tomb", "target": "fact_joseph", "label": "Who buried him?" },
+    { "id": "e_tomb_chain_2", "source": "fact_joseph", "target": "fact_guard", "label": "Even opponents admit it was empty" },
+    { "id": "e_tomb_chain_3", "source": "fact_guard", "target": "obj_stolen", "label": "If it's empty, did they steal it?" },
+    { "id": "e_tomb_chain_4", "source": "obj_stolen", "target": "ref_stolen_cowardice", "label": "Answer: They died for it" },
+    { "id": "e_tomb_chain_5", "source": "ref_stolen_cowardice", "target": "obj_wrong_tomb", "label": "If not a lie, what about a mistake?" },
+    { "id": "e_tomb_chain_6", "source": "obj_wrong_tomb", "target": "ref_wrong_tomb", "label": "Answer: Romans knew the location" },
+
+    { "id": "e_hub_app_entry", "source": "grp_appearances", "target": "fact_appearances", "label": "Did people see him alive?" },
+    { "id": "e_app_chain_1", "source": "fact_appearances", "target": "fact_skeptics", "label": "Even enemies converted" },
+    { "id": "e_app_chain_2", "source": "fact_skeptics", "target": "fact_transformation", "label": "Instant transformation?" },
+    { "id": "e_app_chain_2_phys", "source": "fact_transformation", "target": "fact_physical_nature", "label": "Was it just a vision? He ate fruit and fish." },
+    { "id": "e_app_chain_3", "source": "fact_physical_nature", "target": "obj_hallucination", "label": "If not a lie, was it hallucinations?" },
+    { "id": "e_app_chain_4", "source": "obj_hallucination", "target": "ref_hallucination", "label": "Answer: Groups can't hallucinate" },
+    { "id": "e_app_chain_5", "source": "ref_hallucination", "target": "obj_dissonance", "label": "Was it inward mental coping?" },
+    { "id": "e_app_chain_6", "source": "obj_dissonance", "target": "ref_dissonance", "label": "Answer: It didn't fit their theology" },
+
+    { "id": "e_hub_myth_entry", "source": "grp_mythicism", "target": "fact_creeds", "label": "How early is the claim?" },
+    { "id": "e_myth_chain_1", "source": "fact_creeds", "target": "fact_nonchristian", "label": "Outside sources confirm it" },
+    { "id": "e_myth_chain_1_hostile", "source": "fact_nonchristian", "target": "fact_hostile_agreement", "label": "Even hostile scholars admit baseline facts" },
+    { "id": "e_myth_chain_1_bias", "source": "fact_hostile_agreement", "target": "bias_naturalism", "label": "Is there an anti-miracle bias?" },
+    { "id": "e_myth_chain_3", "source": "bias_naturalism", "target": "obj_legend", "label": "Bias forces a legend theory" },
+    { "id": "e_myth_chain_4", "source": "obj_legend", "target": "ref_legend", "label": "Too early for legend" },
+    { "id": "e_myth_chain_5", "source": "ref_legend", "target": "obj_copycat", "label": "Was it a pagan copycat?" },
+    { "id": "e_myth_chain_6", "source": "obj_copycat", "target": "ref_copycat", "label": "Myths don't match" },
+    { "id": "e_myth_chain_7", "source": "ref_copycat", "target": "obj_conflated", "label": "No single theory works—do we combine them?" },
+    { "id": "e_myth_chain_8", "source": "obj_conflated", "target": "ref_conflated", "label": "Answer: Ockham's Razor" },
+    { "id": "e_myth_climax_sum", "source": "ref_conflated", "target": "core_cumulative_case", "label": "The Big Picture Verdict", "style": { "stroke": "#f59e0b", "strokeWidth": 4 } },
+
+    { "id": "e_hub_moral_entry", "source": "grp_morality", "target": "fact_moral_argument", "label": "Is morality real?" },
+    { "id": "e_moral_chain_1", "source": "fact_moral_argument", "target": "obj_morality_evolution", "label": "Is morality just evolution?" },
+    { "id": "e_moral_chain_2", "source": "obj_morality_evolution", "target": "ref_grounding", "label": "Answer: The grounding problem" },
+    { "id": "e_moral_chain_3", "source": "ref_grounding", "target": "fact_dignity", "label": "Resurrection grounds human worth" },
+
+    { "id": "e_hub_evil_entry", "source": "grp_evil", "target": "obj_problem_evil", "label": "Why does evil exist?" },
+    { "id": "e_evil_chain_1", "source": "obj_problem_evil", "target": "ref_free_will", "label": "Answer: Free will defense" },
+    { "id": "e_evil_chain_2", "source": "ref_free_will", "target": "ref_soul_building", "label": "Deepened by: Soul-building" },
+    { "id": "e_evil_chain_3", "source": "ref_soul_building", "target": "ref_cross_answer", "label": "God enters the pain" },
+    { "id": "e_evil_chain_4", "source": "ref_cross_answer", "target": "ref_future_restoration", "label": "Sympathy isn't enough; we need a fix" },
+
+    { "id": "e_final_climax", "source": "core_cumulative_case", "target": "core_resurrection", "label": "Verified: It happened", "animated": true, "style": { "stroke": "#10b981", "strokeWidth": 5 } }
   ]
 }
