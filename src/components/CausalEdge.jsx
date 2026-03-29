@@ -59,10 +59,11 @@ export function CausalEdge({
               position: 'absolute',
               transform: `translate(-50%, -50%) translate(${labelX}px,${labelY}px)`,
               pointerEvents: 'all',
+              zIndex: 10,
             }}
             className="nodrag nopan"
           >
-            <div className={`px-2 py-1 rounded-full text-[10px] font-bold border shadow-sm backdrop-blur-md ${
+            <div className={`px-3 py-1.5 rounded-lg text-[10px] sm:text-xs font-bold border shadow-sm backdrop-blur-md max-w-[220px] text-center whitespace-normal leading-tight ${
               isCausal
                 ? (isOpposite 
                     ? 'bg-red-500/10 border-red-500/20 text-red-600 dark:text-red-400' 

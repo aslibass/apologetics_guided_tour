@@ -52,7 +52,7 @@ export default function App() {
 
     const nodeLayout = {};
     const Y_SPACING = 300;
-    const X_SPACING = 380;
+    const X_SPACING = 550;
     
     // 0. Build quick map of Node ID -> Parent Hub ID to enforce swimlane bounds
     const nodeParentMap = {};
